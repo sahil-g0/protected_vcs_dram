@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1762580391.599721495, "rt":1.40, "ut":1.08, "st":0.11}}
+{"vcselab":{"timestamp_begin":1762580393.070328804, "rt":0.34, "ut":0.19, "st":0.07}}
+{"link":{"timestamp_begin":1762580393.472860380, "rt":0.30, "ut":0.08, "st":0.08}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1762580391.095723368}
+{"VCS_COMP_START_TIME": 1762580391.095723368}
+{"VCS_COMP_END_TIME": 1762580785.551929595}
+{"VCS_USER_OPTIONS": "-full64 -R -gui -debug_pp -sverilog +v2k +define+DDR4_2G_X8 arch_package.sv proj_package.sv interface.sv StateTable.svp MemoryArray.svp ddr4_model.svp tb.sv"}
+{"vcs1": {"peak_mem": 1083203}}
+{"stitch_vcselab": {"peak_mem": 1083525}}

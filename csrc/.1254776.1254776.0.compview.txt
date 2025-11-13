@@ -1,0 +1,7 @@
+Command exited with non-zero status 255
+{"vcs1":{"timestamp_begin":1762582757.888454435, "rt":0.31, "ut":0.23, "st":0.03}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1762582757.394842041}
+{"VCS_COMP_START_TIME": 1762582757.394842041}
+{"VCS_COMP_END_TIME": 1762582758.265278572}
+{"VCS_USER_OPTIONS": "-full64 -R -gui -debug_pp -sverilog +v2k +define+DDR4_2G_X8 arch_package.sv proj_package.sv interface.sv StateTable.svp MemoryArray.svp ddr4_model.svp tb.sv"}
+{"vcs1": {"peak_mem": 1256377}}

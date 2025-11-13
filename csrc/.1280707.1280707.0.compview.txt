@@ -1,0 +1,5 @@
+{"vcs1":{"timestamp_begin":1762582998.077959907, "rt":0.11, "ut":0.05, "st":0.03}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1762582997.604626375}
+{"VCS_COMP_START_TIME": 1762582997.604626375}
+{"VCS_COMP_END_TIME": 1762584180.711500100}
+{"VCS_USER_OPTIONS": "-full64 -R -gui -debug_pp -sverilog +v2k +define+DDR4_2G_X8 arch_package.sv proj_package.sv interface.sv StateTable.svp MemoryArray.svp ddr4_model.svp tb.sv"}

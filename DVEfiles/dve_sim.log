@@ -1,0 +1,38 @@
+21:28:56    16 -->                                                             [tcl] ucliGUI::connect -toolargs -ucligui -toolexe simv +v2k +define+DDR4_2G_X8 -pid 1968061 -toolin /tmp/vcs_20251112032852_1968034_sg57827..stdin -toolout /tmp/vcs_20251112032852_1968034_sg57827..stdout  
+21:28:56    17 -->                                                                 [tcl] set ucliGUI::state
+21:28:56    18 -->                                                                     [tcl] set ucliGUI::state
+21:28:56    19 -->                                                                         [tcl] ucliCore::getToolPID
+21:28:56    20 -->                                                                             [tcl] synopsys::env hasTB
+21:28:58    21 -->                                                                                 [tcl] trigger_hier_stack_context_switch 0
+21:28:58    22 -->                                                                                     [tcl] synopsys::xml set_array_limit <data limit="50" />
+21:28:58    23 -->                                                                                         [tcl] synopsys::xml set_depth_limit <data limit="100" />
+21:28:58    24 -->                                                                                             [tcl] synopsys::xml set_string_limit <data limit="1000" />
+21:28:58    25 --> ...  [tcl] synopsys::xml set_only_active_frame <data value="1" />
+21:28:58    26 --> ...      [tcl] synopsys::xml set_variable_frame_id <data value="1" />
+21:28:58    27 --> ...          [tcl] synUtils::setDVEInitPhase 1
+21:28:58    28 --> ...              [tcl] gui_get_env SIMSETUP::SIMVPD
+21:28:58    29 --> ...                  [tcl] synopsys::dump -type VPD -file /home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/inter.vpd -locking
+21:28:58    30 --> ...                      [tcl] synopsys::dump -autoflush on -fid VPD0
+21:28:58    31 --> ...                          [tcl] set ::dve_fid VPD0
+21:28:58    32 --> ...                              [tcl] synUtils::setDVEInitPhase 0
+21:28:58    33 --> ...                                  [tcl] ucliCore::getToolPID
+21:28:58    34 --> ...                                      [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpwlgFDp
+21:28:58    35 --> ...                                          [tcl] synUtils::sendTool -active {_icl_start_rpc -version "T-2022.06_Full64" -sync_file /tmp/vcs_dve_rpc.sg57827.1968061}
+21:28:59    36 --> ...                                              [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.sg57827.1968061}
+21:28:59    37 --> ...                                                  [tcl] dveMisc::vbusExpand arch_package
+21:28:59    38 --> ...                                                      [tcl] config endofsim noexit
+21:28:59    39 --> ...                                                          [tcl] config onfail enable all
+21:28:59    40 --> ...                                                              [tcl] config syscaddplainmembers
+21:28:59    41 --> ...                                                                  [tcl] config syscaddsourcenames
+21:28:59    42 --> ...                                                                      [tcl] config syscaddstructtypes
+21:28:59    43 --> ...                                                                          [tcl] synopsys::listing -disable
+21:29:54    44 --> ...                                                                              [tcl] dveMisc::vbusExpand tb
+21:29:55    45 --> ...                                                                                  [tcl] dveMisc::vbusExpand _vcs_unit__17166948
+21:32:35    46 --> ...                                                                                      [tcl] ucliGUI::vpdAddHierarchy -scope tb -depth 1 -file /home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/inter.vpd; synopsys::dump -flush VPD0
+21:44:42    47 --> ...                                                                                          [tcl] ucliGUI::getSignalValues -scope tb -radix {symbolic } -list {{timing.tRP[31:0]} }
+21:50:27    48 --> ...                                                                                              [tcl] synopsys::dump -add {tb.iDDR4 } -aggregates  -fid VPD0
+21:59:56    49 --> ...                                                                                                  [tcl] ucliGUI::getSignalValues -scope tb -radix {hexadecimal } -list {timing }
+22:38:38    50 --> ...  [tcl] ucliGUI::getSignalValues -scope tb -radix {symbolic } -list {{timing.tCK[31:0]} }
+22:40:04    51 --> ...      [tcl] ucliGUI::getSignalValues -scope tb -radix {hexadecimal } -list {_dut_mode_config }
+22:40:07    52 --> ...          [tcl] ucliGUI::getSignalValues -scope tb -radix {symbolic } -list {{_dut_mode_config.BL[31:0]} }
+22:40:58    53 --> ...              [tcl] ucliGUI::getSignalValues -scope tb -radix {symbolic } -list {{_dut_mode_config.WL_calculated[31:0]} }

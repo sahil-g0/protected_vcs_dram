@@ -1,0 +1,331 @@
+00:25:19    75 --> ...  [tcl] ucliGUI::start /home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/simv -ucligui +v2k +define+DDR4_2G_X8
+00:25:19    76 --> ...      [tcl] set ucliGUI::state
+00:25:20    77 --> ...          [tcl] set ucliGUI::state
+00:25:20    78 --> ...              [tcl] ucliCore::getToolPID
+00:25:20    79 --> ...                  [tcl] synopsys::env hasTB
+00:25:20    80 --> ...                      [tcl] trigger_hier_stack_context_switch 0
+00:25:20    81 --> ...                          [tcl] synopsys::xml set_array_limit <data limit="50" />
+00:25:20    82 --> ...                              [tcl] synopsys::xml set_depth_limit <data limit="100" />
+00:25:20    83 --> ...                                  [tcl] synopsys::xml set_string_limit <data limit="1000" />
+00:25:20    84 --> ...                                      [tcl] synopsys::xml set_only_active_frame <data value="1" />
+00:25:20    85 --> ...                                          [tcl] synopsys::xml set_variable_frame_id <data value="1" />
+00:25:20    86 --> ...                                              [tcl] synUtils::setDVEInitPhase 1
+00:25:20    87 --> ...                                                  [tcl] gui_get_env SIMSETUP::SIMVPD
+00:25:20    88 --> ...                                                      [tcl] synopsys::dump -type VPD -file /home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/inter.vpd -locking
+00:25:20    89 --> ...                                                          [tcl] synopsys::dump -autoflush on -fid VPD1
+00:25:20    90 --> ...                                                              [tcl] set ::dve_fid VPD1
+00:25:20    91 --> ...                                                                  [tcl] synUtils::setDVEInitPhase 0
+00:25:20    92 --> ...                                                                      [tcl] ucliCore::getToolPID
+00:25:20    93 --> ...                                                                          [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpGZsdds
+00:25:20    94 --> ...                                                                              [tcl] synUtils::sendTool -active {_icl_start_rpc -version "T-2022.06_Full64" -sync_file /tmp/vcs_dve_rpc.sg57827.1288503}
+00:25:20    95 --> ...                                                                                  [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.sg57827.1288503}
+00:25:20    96 --> ...                                                                                      [tcl] config endofsim noexit
+00:25:20    97 --> ...                                                                                          [tcl] config onfail enable all
+00:25:20    98 --> ...                                                                                              [tcl] config syscaddplainmembers
+00:25:20    99 --> ...                                                                                                  [tcl] config syscaddsourcenames
+00:25:20    100 --> ...  [tcl] config syscaddstructtypes
+00:25:20    101 --> ...      [tcl] synopsys::listing -disable
+00:25:20    102 --> ...          [tcl] # Begin_DVE_Session_Save_Info
+00:25:20    103 --> ...              [tcl] # DVE restart session
+00:25:20    104 --> ...                  [tcl] # Saved on Sat Nov 8 00:25:19 2025
+00:25:20    105 --> ...                      [tcl] # Designs open: 1
+00:25:20    106 --> ...                          [tcl] #   Sim: /home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/simv
+00:25:20    107 --> ...                              [tcl] # Toplevel windows open: 2
+00:25:20    108 --> ...                                  [tcl] # 	TopLevel.1
+00:25:20    109 --> ...                                      [tcl] # 	TopLevel.2
+00:25:20    110 --> ...                                          [tcl] #   Source.1: arch_package
+00:25:20    111 --> ...                                              [tcl] #   Wave.1: 53 signals
+00:25:20    112 --> ...                                                  [tcl] #   Group count = 2
+00:25:20    113 --> ...                                                      [tcl] #   Group tb signal count = 53
+00:25:20    114 --> ...                                                          [tcl] #   Group tb_1 signal count = 53
+00:25:20    115 --> ...                                                              [tcl] # End_DVE_Session_Save_Info
+00:25:20    116 --> ...                                                                  [tcl] # DVE version: T-2022.06_Full64
+00:25:20    117 --> ...                                                                      [tcl] # DVE build date: May 31 2022 20:53:03
+00:25:20    118 --> ...                                                                          [tcl] #<Session mode="Restart" path=".restartSimSession.tcl" type="Debug">
+00:25:20    119 --> ...                                                                              [tcl] gui_set_loading_session_type Restart
+00:25:20    120 --> ...                                                                                  [tcl] gui_continuetime_set
+00:25:20    121 --> ...                                                                                      [tcl] gui_clear_window -type Wave
+00:25:20    122 --> ...                                                                                          [tcl] gui_clear_window -type List
+00:25:20    123 --> ...                                                                                              [tcl] # Application preferences
+00:25:20    124 --> ...                                                                                                  [tcl] gui_set_pref_value -key app_default_font -value {Helvetica,10,-1,5,50,0,0,0,0,0}
+00:25:20    125 --> ...  [tcl] gui_src_preferences -tabstop 8 -maxbits 24 -windownumber 1
+00:25:20    126 --> ...      [tcl] #<WindowLayout>
+00:25:20    127 --> ...          [tcl] # DVE top-level session
+00:25:20    128 --> ...              [tcl] # Create and position top-level window: TopLevel.1
+00:25:20    129 --> ...                  [tcl] set TopLevel.1 TopLevel.1
+00:25:20    130 --> ...                      [tcl] # Docked window settings
+00:25:20    131 --> ...                          [tcl] gui_sync_global -id ${TopLevel.1} -option true
+00:25:20    132 --> ...                              [tcl] # MDI window settings
+00:25:20    133 --> ...                                  [tcl] set Console.1 Console.1
+00:25:20    134 --> ...                                      [tcl] gui_update_layout -id ${Console.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false}}
+00:25:21    135 --> ...                                          [tcl] set HSPane.1 HSPane.1
+00:25:21    136 --> ...                                              [tcl] set Hier.1 Hier.1
+00:25:21    137 --> ...                                                  [tcl] set Stack.1 Stack.1
+00:25:21    138 --> ...                                                      [tcl] set Class.1 Class.1
+00:25:21    139 --> ...                                                          [tcl] set Object.1 Object.1
+00:25:21    140 --> ...                                                              [tcl] gui_update_layout -id ${HSPane.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_hier_colhier 700} {child_hier_coltype 575} {child_hier_colpd 0} {child_hier_col1 0} {child_hier_col2 1} {child_hier_col3 -1}}
+00:25:21    141 --> ...                                                                  [tcl] set DLPane.1 DLPane.1
+00:25:21    142 --> ...                                                                      [tcl] set Data.1 Data.1
+00:25:21    143 --> ...                                                                          [tcl] set Local.1 Local.1
+00:25:21    144 --> ...                                                                              [tcl] set Member.1 Member.1
+00:25:21    145 --> ...                                                                                  [tcl] gui_update_layout -id ${DLPane.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_data_colvariable 554} {child_data_colvalue 325} {child_data_coltype 381} {child_data_col1 0} {child_data_col2 1} {child_data_col3 2}}
+00:25:21    146 --> ...                                                                                      [tcl] set Source.1 Source.1
+00:25:21    147 --> ...                                                                                          [tcl] gui_update_layout -id ${Source.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false}}
+00:25:21    148 --> ...                                                                                              [tcl] # End MDI window settings
+00:25:21    149 --> ...                                                                                                  [tcl] # Create and position top-level window: TopLevel.2
+00:25:21    150 --> ...  [tcl] set TopLevel.2 TopLevel.2
+00:25:21    151 --> ...      [tcl] # Docked window settings
+00:25:21    152 --> ...          [tcl] gui_sync_global -id ${TopLevel.2} -option true
+00:25:21    153 --> ...              [tcl] # MDI window settings
+00:25:21    154 --> ...                  [tcl] set Wave.1 Wave.1
+00:25:21    155 --> ...                      [tcl] gui_update_layout -id ${Wave.1} {{show_state maximized} {dock_state undocked} {dock_on_new_line false} {child_wave_left 353} {child_wave_right 860} {child_wave_colname 174} {child_wave_colvalue 174} {child_wave_col1 0} {child_wave_col2 1}}
+00:25:21    156 --> ...                          [tcl] # End MDI window settings
+00:25:21    157 --> ...                              [tcl] #</WindowLayout>
+00:25:21    158 --> ...                                  [tcl] #<Database>
+00:25:21    159 --> ...                                      [tcl] gui_set_precision 1ps
+00:25:21    160 --> ...                                          [tcl] gui_set_time_units 1ps
+00:25:21    161 --> ...                                              [tcl] #</Database>
+00:25:21    162 --> ...                                                  [tcl] # DVE Global setting session:
+00:25:21    163 --> ...                                                      [tcl] # Global: Breakpoints
+00:25:21    164 --> ...                                                          [tcl] # Global: Bus
+00:25:21    165 --> ...                                                              [tcl] # Global: Expressions
+00:25:21    166 --> ...                                                                  [tcl] # Global: Signal Time Shift
+00:25:21    167 --> ...                                                                      [tcl] # Global: Signal Compare
+00:25:21    168 --> ...                                                                          [tcl] # Global: Signal Groups
+00:25:21    169 --> ...                                                                              [tcl] gui_load_child_values {tb}
+00:25:21    170 --> ...                                                                                  [tcl] synopsys::dump -add {tb} -scope "." -depth 1 -fid VPD1
+00:25:21    171 --> ...                                                                                      [tcl] set _session_group_1 tb
+00:25:21    172 --> ...                                                                                          [tcl] gui_sg_create "$_session_group_1"
+00:25:21    173 --> ...                                                                                              [tcl] set tb "$_session_group_1"
+00:25:21    174 --> ...                                                                                                  [tcl] gui_sg_addsignal -group "$_session_group_1" { tb.dqs_out tb.dqs_en tb.tOffset arch_package.AUTOPRECHARGEADDR arch_package.MAX_DM_BITS tb.dq_fifo tb.clk_enb tb._dut_mode_config arch_package.MAX_WL arch_package.MAX_BURST_LEN tb.burst_cntr arch_package.MR6 arch_package.MAX_RL arch_package.MAX_RANK_BITS tb.odt_fifo arch_package.MODEREG_BITS tb.max_tCK tb.q0 tb.q1 tb.min_tCK tb.q2 tb.tt_timesets tb.q3 tb.driving_cmd arch_package.MAX_BANK_BITS tb.dm_fifo tb.CONFIGURED_DQ_BITS tb.dq_out tb.odt_out tb.CONFIGURED_DENSITY arch_package.MAX_DQS_BITS tb.ptr_rst_n arch_package.MAX_MODEREGS tb.odt_wire arch_package.MAX_DQ_BITS tb.tCK tb.func_str arch_package.MAX_BANK_GROUP_BITS tb.dm_out tb.model_enable arch_package.BLFLYSELECT arch_package.MAX_BL tb.CONFIGURED_RANKS tb.timing tb._dut_config arch_package.MAX_COL_ADDR_BITS arch_package.MAX_CAL {tb.$unit} arch_package.MAX_ADDR_BITS tb.dq_en tb.model_enable_val tb.clk_val arch_package.MAX_ROW_ADDR_BITS }
+00:25:21    175 --> ...  [tcl] dveMisc::vbusExpand tb
+00:25:21    176 --> ...      [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.tOffset}
+00:25:21    177 --> ...          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.tOffset}
+00:25:21    178 --> ...              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.AUTOPRECHARGEADDR}
+00:25:21    179 --> ...                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.AUTOPRECHARGEADDR}
+00:25:21    180 --> ...                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_DM_BITS}
+00:25:21    181 --> ...                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_DM_BITS}
+00:25:21    182 --> ...                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_WL}
+00:25:21    183 --> ...                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_WL}
+00:25:21    184 --> ...                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BURST_LEN}
+00:25:21    185 --> ...                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BURST_LEN}
+00:25:21    186 --> ...                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MR6}
+00:25:21    187 --> ...                                                  [tcl] gui_set_radix -radix {unsigned} -signals {Sim:arch_package.MR6}
+00:25:21    188 --> ...                                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_RL}
+00:25:21    189 --> ...                                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_RL}
+00:25:21    190 --> ...                                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_RANK_BITS}
+00:25:21    191 --> ...                                                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_RANK_BITS}
+00:25:21    192 --> ...                                                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MODEREG_BITS}
+00:25:21    193 --> ...                                                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MODEREG_BITS}
+00:25:21    194 --> ...                                                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.max_tCK}
+00:25:21    195 --> ...                                                                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.max_tCK}
+00:25:21    196 --> ...                                                                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BANK_BITS}
+00:25:21    197 --> ...                                                                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BANK_BITS}
+00:25:21    198 --> ...                                                                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.CONFIGURED_DQ_BITS}
+00:25:21    199 --> ...                                                                                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.CONFIGURED_DQ_BITS}
+00:25:21    200 --> ...  [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.CONFIGURED_DENSITY}
+00:25:21    201 --> ...      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.CONFIGURED_DENSITY}
+00:25:21    202 --> ...          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_DQS_BITS}
+00:25:21    203 --> ...              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_DQS_BITS}
+00:25:21    204 --> ...                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_MODEREGS}
+00:25:21    205 --> ...                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_MODEREGS}
+00:25:21    206 --> ...                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_DQ_BITS}
+00:25:21    207 --> ...                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_DQ_BITS}
+00:25:21    208 --> ...                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BANK_GROUP_BITS}
+00:25:21    209 --> ...                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BANK_GROUP_BITS}
+00:25:21    210 --> ...                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.BLFLYSELECT}
+00:25:21    211 --> ...                                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.BLFLYSELECT}
+00:25:21    212 --> ...                                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BL}
+00:25:21    213 --> ...                                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BL}
+00:25:21    214 --> ...                                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.CONFIGURED_RANKS}
+00:25:21    215 --> ...                                                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.CONFIGURED_RANKS}
+00:25:21    216 --> ...                                                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_COL_ADDR_BITS}
+00:25:21    217 --> ...                                                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_COL_ADDR_BITS}
+00:25:21    218 --> ...                                                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_CAL}
+00:25:21    219 --> ...                                                                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_CAL}
+00:25:21    220 --> ...                                                                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_ADDR_BITS}
+00:25:21    221 --> ...                                                                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_ADDR_BITS}
+00:25:21    222 --> ...                                                                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_ROW_ADDR_BITS}
+00:25:21    223 --> ...                                                                                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_ROW_ADDR_BITS}
+00:25:21    224 --> ...                                                                                                  [tcl] set _session_group_2 tb_1
+00:25:21    225 --> ...  [tcl] gui_sg_create "$_session_group_2"
+00:25:21    226 --> ...      [tcl] set tb_1 "$_session_group_2"
+00:25:21    227 --> ...          [tcl] gui_sg_addsignal -group "$_session_group_2" { arch_package.MAX_BURST_LEN tb._dut_config tb.dq_en arch_package.MAX_WL tb.burst_cntr tb.driving_cmd tb.max_tCK arch_package.MAX_CAL arch_package.MAX_BANK_GROUP_BITS tb.odt_wire arch_package.MAX_DQS_BITS tb.model_enable tb.q0 tb.q1 tb.odt_fifo tb.q2 tb.q3 arch_package.MODEREG_BITS tb.clk_val arch_package.MAX_RL tb._dut_mode_config tb.CONFIGURED_DENSITY arch_package.MAX_MODEREGS tb.dm_fifo tb.func_str arch_package.MAX_BANK_BITS tb.tt_timesets tb.tCK tb.model_enable_val tb.CONFIGURED_DQ_BITS arch_package.MAX_ROW_ADDR_BITS arch_package.MAX_ADDR_BITS arch_package.MAX_COL_ADDR_BITS tb.dm_out arch_package.MAX_DM_BITS arch_package.AUTOPRECHARGEADDR arch_package.MAX_RANK_BITS tb.dq_fifo tb.dqs_en tb.CONFIGURED_RANKS tb.clk_enb arch_package.MAX_BL tb.tOffset tb.timing arch_package.MAX_DQ_BITS arch_package.MR6 tb.dq_out tb.min_tCK tb.dqs_out {tb.$unit} arch_package.BLFLYSELECT tb.odt_out tb.ptr_rst_n }
+00:25:21    228 --> ...              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BURST_LEN}
+00:25:21    229 --> ...                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BURST_LEN}
+00:25:21    230 --> ...                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_WL}
+00:25:21    231 --> ...                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_WL}
+00:25:21    232 --> ...                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.max_tCK}
+00:25:21    233 --> ...                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.max_tCK}
+00:25:21    234 --> ...                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_CAL}
+00:25:21    235 --> ...                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_CAL}
+00:25:21    236 --> ...                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BANK_GROUP_BITS}
+00:25:21    237 --> ...                                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BANK_GROUP_BITS}
+00:25:21    238 --> ...                                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_DQS_BITS}
+00:25:21    239 --> ...                                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_DQS_BITS}
+00:25:21    240 --> ...                                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MODEREG_BITS}
+00:25:21    241 --> ...                                                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MODEREG_BITS}
+00:25:21    242 --> ...                                                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_RL}
+00:25:21    243 --> ...                                                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_RL}
+00:25:21    244 --> ...                                                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.CONFIGURED_DENSITY}
+00:25:21    245 --> ...                                                                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.CONFIGURED_DENSITY}
+00:25:21    246 --> ...                                                                                      [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_MODEREGS}
+00:25:21    247 --> ...                                                                                          [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_MODEREGS}
+00:25:21    248 --> ...                                                                                              [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BANK_BITS}
+00:25:21    249 --> ...                                                                                                  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BANK_BITS}
+00:25:21    250 --> ...  [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.CONFIGURED_DQ_BITS}
+00:25:21    251 --> ...      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.CONFIGURED_DQ_BITS}
+00:25:21    252 --> ...          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_ROW_ADDR_BITS}
+00:25:21    253 --> ...              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_ROW_ADDR_BITS}
+00:25:21    254 --> ...                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_ADDR_BITS}
+00:25:21    255 --> ...                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_ADDR_BITS}
+00:25:21    256 --> ...                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_COL_ADDR_BITS}
+00:25:21    257 --> ...                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_COL_ADDR_BITS}
+00:25:21    258 --> ...                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_DM_BITS}
+00:25:21    259 --> ...                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_DM_BITS}
+00:25:21    260 --> ...                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.AUTOPRECHARGEADDR}
+00:25:21    261 --> ...                                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.AUTOPRECHARGEADDR}
+00:25:21    262 --> ...                                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_RANK_BITS}
+00:25:21    263 --> ...                                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_RANK_BITS}
+00:25:21    264 --> ...                                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.CONFIGURED_RANKS}
+00:25:21    265 --> ...                                                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.CONFIGURED_RANKS}
+00:25:21    266 --> ...                                                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_BL}
+00:25:21    267 --> ...                                                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_BL}
+00:25:21    268 --> ...                                                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:tb.tOffset}
+00:25:21    269 --> ...                                                                              [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:tb.tOffset}
+00:25:21    270 --> ...                                                                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MAX_DQ_BITS}
+00:25:21    271 --> ...                                                                                      [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.MAX_DQ_BITS}
+00:25:21    272 --> ...                                                                                          [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.MR6}
+00:25:21    273 --> ...                                                                                              [tcl] gui_set_radix -radix {unsigned} -signals {Sim:arch_package.MR6}
+00:25:21    274 --> ...                                                                                                  [tcl] gui_set_radix -radix {decimal} -signals {Sim:arch_package.BLFLYSELECT}
+00:25:21    275 --> ...  [tcl] gui_set_radix -radix {twosComplement} -signals {Sim:arch_package.BLFLYSELECT}
+00:25:21    276 --> ...      [tcl] # Global: Highlighting
+00:25:21    277 --> ...          [tcl] # Global: Stack
+00:25:21    278 --> ...              [tcl] gui_change_stack_mode -mode list
+00:25:21    279 --> ...                  [tcl] # Post database loading setting...
+00:25:21    280 --> ...                      [tcl] # Save global setting...
+00:25:21    281 --> ...                          [tcl] # Wave/List view global setting
+00:25:21    282 --> ...                              [tcl] gui_cov_show_value -switch false
+00:25:21    283 --> ...                                  [tcl] # Close all empty TopLevel windows
+00:25:21    284 --> ...                                      [tcl] foreach __top [gui_ekki_get_window_ids -type TopLevel] {     if { [llength [gui_ekki_get_window_ids -parent $__top]] == 0} {         gui_close_window -window $__top     } }
+00:25:21    285 --> ...                                          [tcl] gui_set_loading_session_type noSession
+00:25:21    286 --> ...                                              [tcl] # DVE View/pane content session:
+00:25:21    287 --> ...                                                  [tcl] # Hier 'Hier.1'
+00:25:21    288 --> ...                                                      [tcl] gui_show_window -window ${Hier.1}
+00:25:21    289 --> ...                                                          [tcl] gui_list_set_filter -id ${Hier.1} -list { {Package 1} {All 0} {Process 1} {VirtPowSwitch 0} {UnnamedProcess 1} {UDP 0} {Function 1} {Block 1} {SrsnAndSpaCell 0} {OVA Unit 1} {LeafScCell 1} {LeafVlgCell 1} {Interface 1} {LeafVhdCell 1} {$unit 1} {NamedBlock 1} {Task 1} {VlgPackage 1} {ClassDef 1} {VirtIsoCell 0} }
+00:25:21    290 --> ...                                                              [tcl] gui_list_set_filter -id ${Hier.1} -text {*}
+00:25:21    291 --> ...                                                                  [tcl] gui_change_design -id ${Hier.1} -design Sim
+00:25:22    292 --> ...                                                                      [tcl] catch {gui_list_select -id ${Hier.1} {tb}}
+00:25:22    293 --> ...                                                                          [tcl] gui_view_scroll -id ${Hier.1} -vertical -set 0
+00:25:22    294 --> ...                                                                              [tcl] gui_view_scroll -id ${Hier.1} -horizontal -set 0
+00:25:22    295 --> ...                                                                                  [tcl] # Class 'Class.1'
+00:25:22    296 --> ...                                                                                      [tcl] gui_list_set_filter -id ${Class.1} -list { {OVM 1} {VMM 1} {All 1} {Object 1} {UVM 1} {RVM 1} }
+00:25:22    297 --> ...                                                                                          [tcl] gui_list_set_filter -id ${Class.1} -text {*}
+00:25:22    298 --> ...                                                                                              [tcl] gui_change_design -id ${Class.1} -design Sim
+00:25:22    299 --> ...                                                                                                  [tcl] # Member 'Member.1'
+00:25:22    300 --> ...  [tcl] gui_list_set_filter -id ${Member.1} -list { {InternalMember 0} {RandMember 1} {All 0} {BaseMember 0} {PrivateMember 1} {LibBaseMember 0} {AutomaticMember 1} {VirtualMember 1} {PublicMember 1} {ProtectedMember 1} {OverRiddenMember 0} {InterfaceClassMember 1} {StaticMember 1} }
+00:25:22    301 --> ...      [tcl] gui_list_set_filter -id ${Member.1} -text {*}
+00:25:22    302 --> ...          [tcl] # Data 'Data.1'
+00:25:22    303 --> ...              [tcl] gui_list_set_filter -id ${Data.1} -list { {Buffer 1} {Input 1} {Others 1} {Linkage 1} {Output 1} {LowPower 1} {Parameter 1} {All 1} {Aggregate 1} {LibBaseMember 1} {Event 1} {Assertion 1} {Constant 1} {Interface 1} {BaseMembers 1} {Signal 1} {$unit 1} {Inout 1} {Variable 1} }
+00:25:22    304 --> ...                  [tcl] gui_list_set_filter -id ${Data.1} -text {*}
+00:25:22    305 --> ...                      [tcl] gui_list_show_data -id ${Data.1} {tb}
+00:25:22    306 --> ...                          [tcl] gui_view_scroll -id ${Data.1} -vertical -set 0
+00:25:22    307 --> ...                              [tcl] gui_view_scroll -id ${Data.1} -horizontal -set 0
+00:25:22    308 --> ...                                  [tcl] gui_view_scroll -id ${Hier.1} -vertical -set 0
+00:25:22    309 --> ...                                      [tcl] gui_view_scroll -id ${Hier.1} -horizontal -set 0
+00:25:22    310 --> ...                                          [tcl] # Source 'Source.1'
+00:25:22    311 --> ...                                              [tcl] gui_src_value_annotate -id ${Source.1} -switch false
+00:25:22    312 --> ...                                                  [tcl] gui_set_env TOGGLE::VALUEANNOTATE 0
+00:25:22    313 --> ...                                                      [tcl] gui_open_source -id ${Source.1}  -replace -active arch_package /home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/arch_package.sv
+00:25:22    314 --> ...                                                          [tcl] gui_view_scroll -id ${Source.1} -vertical -set 60
+00:25:22    315 --> ...                                                              [tcl] gui_src_set_reusable -id ${Source.1}
+00:25:22    316 --> ...                                                                  [tcl] # Warning: Class view not found.
+00:25:22    317 --> ...                                                                      [tcl] # View 'Wave.1'
+00:25:22    318 --> ...                                                                          [tcl] gui_wv_sync -id ${Wave.1} -switch false
+00:25:22    319 --> ...                                                                              [tcl] set groupExD [gui_get_pref_value -category Wave -key exclusiveSG]
+00:25:22    320 --> ...                                                                                  [tcl] gui_set_pref_value -category Wave -key exclusiveSG -value {false}
+00:25:22    321 --> ...                                                                                      [tcl] set origWaveHeight [gui_get_pref_value -category Wave -key waveRowHeight]
+00:25:22    322 --> ...                                                                                          [tcl] gui_list_set_height -id Wave -height 25
+00:25:22    323 --> ...                                                                                              [tcl] set origGroupCreationState [gui_list_create_group_when_add -wave]
+00:25:22    324 --> ...                                                                                                  [tcl] gui_list_create_group_when_add -wave -disable
+00:25:22    325 --> ...  [tcl] gui_wv_zoom_timerange -id ${Wave.1} 0 280
+00:25:22    326 --> ...      [tcl] gui_list_add_group -id ${Wave.1} -after {New Group} {tb_1}
+00:25:22    327 --> ...          [tcl] synopsys::dump -add {_vcs_unit__17166948 arch_package.AUTOPRECHARGEADDR arch_package.BLFLYSELECT arch_package.MAX_ADDR_BITS arch_package.MAX_BANK_BITS arch_package.MAX_BANK_GROUP_BITS arch_package.MAX_BL arch_package.MAX_BURST_LEN arch_package.MAX_CAL arch_package.MAX_COL_ADDR_BITS arch_package.MAX_DM_BITS arch_package.MAX_DQS_BITS arch_package.MAX_DQ_BITS arch_package.MAX_MODEREGS arch_package.MAX_RANK_BITS arch_package.MAX_RL arch_package.MAX_ROW_ADDR_BITS arch_package.MAX_WL arch_package.MODEREG_BITS arch_package.MR6 tb.dm_fifo tb.dq_fifo tb.tt_timesets } -aggregates  -fid VPD1
+00:25:22    328 --> ...              [tcl] gui_seek_criteria -id ${Wave.1} {Any Edge}
+00:25:22    329 --> ...                  [tcl] gui_set_env TOGGLE::DEFAULT_WAVE_WINDOW ${Wave.1}
+00:25:22    330 --> ...                      [tcl] gui_set_pref_value -category Wave -key exclusiveSG -value $groupExD
+00:25:22    331 --> ...                          [tcl] gui_list_set_height -id Wave -height $origWaveHeight
+00:25:22    332 --> ...                              [tcl] if {$origGroupCreationState} { 	gui_list_create_group_when_add -wave -enable }
+00:25:22    333 --> ...                                  [tcl] if { $groupExD } {  gui_msg_report -code DVWW028 }
+00:25:22    334 --> ...                                      [tcl] gui_list_set_filter -id ${Wave.1} -list { {Buffer 1} {Input 1} {Others 1} {Linkage 1} {Output 1} {Parameter 1} {All 1} {Aggregate 1} {LibBaseMember 1} {Event 1} {Assertion 1} {Constant 1} {Interface 1} {BaseMembers 1} {Signal 1} {$unit 1} {Inout 1} {Variable 1} }
+00:25:22    335 --> ...                                          [tcl] gui_list_set_filter -id ${Wave.1} -text {*}
+00:25:22    336 --> ...                                              [tcl] gui_list_set_insertion_bar  -id ${Wave.1} -group tb_1  -position in
+00:25:22    337 --> ...                                                  [tcl] gui_view_scroll -id ${Wave.1} -vertical -set 0
+00:25:22    338 --> ...                                                      [tcl] gui_show_grid -id ${Wave.1} -enable false
+00:25:22    339 --> ...                                                          [tcl] # Restore toplevel window zorder
+00:25:22    340 --> ...                                                              [tcl] # The toplevel window could be closed if it has no view/pane
+00:25:22    341 --> ...                                                                  [tcl] if {[gui_exist_window -window ${TopLevel.1}]} { 	gui_set_active_window -window ${TopLevel.1} 	gui_set_active_window -window ${HSPane.1} }
+00:25:22    342 --> ...                                                                      [tcl] if {[gui_exist_window -window ${TopLevel.2}]} { 	gui_set_active_window -window ${TopLevel.2} 	gui_set_active_window -window ${Wave.1} }
+00:25:22    343 --> ...                                                                          [tcl] #</Session>
+00:25:24    344 --> ...                                                                              [tcl] synopsys::run
+00:25:24    345 --> ...                                                                                  [tcl] set ucliGUI::state
+00:25:24    346 --> ...                                                                                      [tcl] gui_update_simulator_buttons
+00:25:24    347 --> ...                                                                                          [tcl] set ucliGUI::state
+00:25:24    348 --> ...                                                                                              [tcl] gui_update_simulator_buttons
+00:25:25    349 --> ...                                                                                                  [tcl] set ucliGUI::state
+00:25:25    350 --> ...  [tcl] set ucliGUI::state
+00:25:25    351 --> ...      [tcl] catch {senv activeDomain} dveMisc::result 
+00:25:25    352 --> ...          [tcl] set dveMisc::result
+00:25:25    353 --> ...              [tcl] gui_update_simulator_buttons
+00:34:52    354 --> ...                  [tcl] # DVE Simulation Rebuild/Restart Options
+00:34:52    355 --> ...                      [tcl] # Saved on Sat Nov 8 00:19:06 2025
+00:34:52    356 --> ...                          [tcl] set SIMSETUP::REBUILDOPTION 0
+00:34:52    357 --> ...                              [tcl] set SIMSETUP::REBUILDCMD {}
+00:34:52    358 --> ...                                  [tcl] set SIMSETUP::REBUILDDIR {}
+00:34:52    359 --> ...                                      [tcl] set SIMSETUP::RESTOREBP 1
+00:34:52    360 --> ...                                          [tcl] set SIMSETUP::RESTOREDUMP 1
+00:34:52    361 --> ...                                              [tcl] set SIMSETUP::RESTOREFORCE 1
+00:34:52    362 --> ...                                                  [tcl] set SIMSETUP::RESTORESPECMAN 0
+00:34:52    363 --> ...                                                      [tcl] # DVE Simulation Rebuild/Restart Options
+00:34:52    364 --> ...                                                          [tcl] # Saved on Sat Nov 8 00:19:06 2025
+00:34:52    365 --> ...                                                              [tcl] set SIMSETUP::REBUILDOPTION 0
+00:34:52    366 --> ...                                                                  [tcl] set SIMSETUP::REBUILDCMD {}
+00:34:52    367 --> ...                                                                      [tcl] set SIMSETUP::REBUILDDIR {}
+00:34:52    368 --> ...                                                                          [tcl] set SIMSETUP::RESTOREBP 1
+00:34:52    369 --> ...                                                                              [tcl] set SIMSETUP::RESTOREDUMP 1
+00:34:52    370 --> ...                                                                                  [tcl] set SIMSETUP::RESTOREFORCE 1
+00:34:52    371 --> ...                                                                                      [tcl] set SIMSETUP::RESTORESPECMAN 0
+00:34:54    372 --> ...                                                                                          [tcl] # DVE Simulation Rebuild/Restart Options
+00:34:54    373 --> ...                                                                                              [tcl] # Saved on Sat Nov 8 00:34:54 2025
+00:34:54    374 --> ...                                                                                                  [tcl] set SIMSETUP::REBUILDOPTION 0
+00:34:54    375 --> ...  [tcl] set SIMSETUP::REBUILDCMD {}
+00:34:54    376 --> ...      [tcl] set SIMSETUP::REBUILDDIR {}
+00:34:54    377 --> ...          [tcl] set SIMSETUP::RESTOREBP 1
+00:34:54    378 --> ...              [tcl] set SIMSETUP::RESTOREDUMP 1
+00:34:54    379 --> ...                  [tcl] set SIMSETUP::RESTOREFORCE 1
+00:34:54    380 --> ...                      [tcl] set SIMSETUP::RESTORESPECMAN 0
+00:34:54    381 --> ...                          [tcl] # DVE Simulation Rebuild/Restart Options
+00:34:54    382 --> ...                              [tcl] # Saved on Sat Nov 8 00:34:54 2025
+00:34:54    383 --> ...                                  [tcl] set SIMSETUP::REBUILDOPTION 0
+00:34:54    384 --> ...                                      [tcl] set SIMSETUP::REBUILDCMD {}
+00:34:54    385 --> ...                                          [tcl] set SIMSETUP::REBUILDDIR {}
+00:34:54    386 --> ...                                              [tcl] set SIMSETUP::RESTOREBP 1
+00:34:54    387 --> ...                                                  [tcl] set SIMSETUP::RESTOREDUMP 1
+00:34:54    388 --> ...                                                      [tcl] set SIMSETUP::RESTOREFORCE 1
+00:34:54    389 --> ...                                                          [tcl] set SIMSETUP::RESTORESPECMAN 0
+00:34:54    390 --> ...                                                              [tcl] synopsys::finish
+00:34:54    391 --> ...                                                                  [tcl] set ucliGUI::state
+00:34:54    392 --> ...                                                                      [tcl] gui_update_simulator_buttons
+00:34:54    393 --> ...                                                                          [tcl] set ucliGUI::state
+00:34:54    394 --> ...                                                                              [tcl] catch {senv activeDomain} dveMisc::result 
+00:34:54    395 --> ...                                                                                  [tcl] set dveMisc::result
+00:34:54    396 --> ...                                                                                      [tcl] gui_update_simulator_buttons
+00:34:54    397 --> ...                                                                                          [tcl] # DVE Simulation Rebuild/Restart Options
+00:34:54    398 --> ...                                                                                              [tcl] # Saved on Sat Nov 8 00:34:54 2025
+00:34:54    399 --> ...                                                                                                  [tcl] set SIMSETUP::REBUILDOPTION 0
+00:34:54    400 --> ...  [tcl] set SIMSETUP::REBUILDCMD {}
+00:34:54    401 --> ...      [tcl] set SIMSETUP::REBUILDDIR {}
+00:34:54    402 --> ...          [tcl] set SIMSETUP::RESTOREBP 1
+00:34:54    403 --> ...              [tcl] set SIMSETUP::RESTOREDUMP 1
+00:34:54    404 --> ...                  [tcl] set SIMSETUP::RESTOREFORCE 1
+00:34:54    405 --> ...                      [tcl] set SIMSETUP::RESTORESPECMAN 0

@@ -1,0 +1,636 @@
+Chronologic VCS simulator copyright 1991-2022
+Contains Synopsys proprietary information.
+Compiler version T-2022.06_Full64; Runtime version T-2022.06_Full64;  Nov  8 00:23 2025
+VCD+ Writer T-2022.06_Full64 Copyright (c) 1991-2022 by Synopsys Inc.
+The file '/home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/inter.vpd' was opened successfully.
+Loading timesets for 'tb.golden_model.LoadTiming' @0
+	Loaded timeset:TS_1875
+	Loaded timeset:TS_1500
+	Loaded timeset:TS_1250
+	Loaded timeset:TS_1072
+	Loaded timeset:TS_938
+	Loaded timeset:TS_833
+	Loaded timeset:TS_750
+	Loaded timeset:TS_682
+	Loaded timeset:TS_625
+	Loaded timeset:TS_560
+	Loaded timeset:TS_500
+Setting Timeset:TS_1500 with tCk:1500 @0
+Model based on DDR4 DDS version 0.998 6/06/2014
+Model configured as 2G x8 ranks:1
+Loading timesets for 'tb.LoadTiming' @0
+	Loaded timeset:TS_1875
+	Loaded timeset:TS_1500
+	Loaded timeset:TS_1250
+	Loaded timeset:TS_1072
+	Loaded timeset:TS_938
+	Loaded timeset:TS_833
+	Loaded timeset:TS_750
+	Loaded timeset:TS_682
+	Loaded timeset:TS_625
+	Loaded timeset:TS_560
+	Loaded timeset:TS_500
+Setting Timeset:TS_1250 with tCk:1250 @0.0 ns
+tb.default_period at time 0.0 ns: INFO: Default Clock Period to TS_1250 (1250 ps)
+Model:Cleared MemoryArray @0.0 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @3.1 ns.
+Setting Timeset:TS_1250 with tCk:1250 @3.1 ns
+tb.golden_model.always_diff_ck.if_diff_ck:Initialization complete @1416.2 ns
+Consecutive WRITE (BL8) to WRITE (BL8)
+Consecutive WRITE (BL4) to WRITE (BL4)
+WRITE (BL4 on the fly) to READ (BL4 on the fly)
+READ (BL4) to WRITE (BL8)
+WRITE (BL8) to READ (BL4)
+READ (BL4) to WRITE (BL4)
+tRRD Timing
+Consecutive Writes
+Consecutive Reads
+Non Consecutive Writes
+Non Consecutive Reads
+Setting Timeset:TS_1875 with tCk:1875 @3215.6 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1875 for tck:1875 @3219.1 ns.
+Setting Timeset:TS_1875 with tCk:1875 @3219.1 ns
+tb.sr_change_period at time 3226.6 ns: INFO: Changing Clock Period to TS_1875 (1875 ps)
+Setting Timeset:TS_1500 with tCk:1500 @3427.2 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1500 for tck:1500 @3430.4 ns.
+Setting Timeset:TS_1500 with tCk:1500 @3430.4 ns
+tb.sr_change_period at time 3437.9 ns: INFO: Changing Clock Period to TS_1500 (1500 ps)
+Setting Timeset:TS_1250 with tCk:1250 @3635.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @3638.5 ns.
+Setting Timeset:TS_1250 with tCk:1250 @3638.5 ns
+tb.sr_change_period at time 3646.0 ns: INFO: Changing Clock Period to TS_1250 (1250 ps)
+Setting Timeset:TS_1072 with tCk:1072 @3841.0 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1072 for tck:1072 @3843.2 ns.
+Setting Timeset:TS_1072 with tCk:1072 @3843.2 ns
+tb.sr_change_period at time 3851.8 ns: INFO: Changing Clock Period to TS_1072 (1072 ps)
+Setting Timeset:TS_938 with tCk:938 @4048.0 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_938 for tck:938 @4049.9 ns.
+Setting Timeset:TS_938 with tCk:938 @4049.9 ns
+tb.sr_change_period at time 4058.4 ns: INFO: Changing Clock Period to TS_938 (938 ps)
+Setting Timeset:TS_833 with tCk:833 @4253.5 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_833 for tck:833 @4255.2 ns.
+Setting Timeset:TS_833 with tCk:833 @4255.2 ns
+tb.sr_change_period at time 4264.4 ns: INFO: Changing Clock Period to TS_833 (833 ps)
+Setting Timeset:TS_750 with tCk:750 @4460.1 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_750 for tck:750 @4461.7 ns.
+Setting Timeset:TS_750 with tCk:750 @4461.7 ns
+tb.sr_change_period at time 4470.7 ns: INFO: Changing Clock Period to TS_750 (750 ps)
+Setting Timeset:TS_682 with tCk:682 @4664.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_682 for tck:682 @4666.3 ns.
+Setting Timeset:TS_682 with tCk:682 @4666.3 ns
+tb.sr_change_period at time 4675.2 ns: INFO: Changing Clock Period to TS_682 (682 ps)
+Setting Timeset:TS_625 with tCk:625 @4868.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_625 for tck:625 @4870.1 ns.
+Setting Timeset:TS_625 with tCk:625 @4870.1 ns
+tb.sr_change_period at time 4878.9 ns: INFO: Changing Clock Period to TS_625 (625 ps)
+Setting Timeset:TS_560 with tCk:560 @5071.4 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_560 for tck:560 @5072.5 ns.
+Setting Timeset:TS_560 with tCk:560 @5072.5 ns
+tb.sr_change_period at time 5081.5 ns: INFO: Changing Clock Period to TS_560 (560 ps)
+Setting Timeset:TS_500 with tCk:500 @5274.1 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_500 for tck:500 @5275.2 ns.
+Setting Timeset:TS_500 with tCk:500 @5275.2 ns
+tb.sr_change_period at time 5284.2 ns: INFO: Changing Clock Period to TS_500 (500 ps)
+Setting Timeset:TS_1250 with tCk:1250 @5476.2 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @5478.3 ns.
+Setting Timeset:TS_1250 with tCk:1250 @5478.3 ns
+tb.sr_change_period at time 5485.8 ns: INFO: Changing Clock Period to TS_1250 (1250 ps)
+Power-Down Entry after WRITE w/ AP (WRA)
+refresh to power down re-entry
+Power-Down Exit to Refresh to Power-Down Entry
+Change Frequency to TS_1500 during Self Refresh
+Setting Timeset:TS_1500 with tCk:1500 @10025.8 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1500 for tck:1500 @10028.7 ns.
+Setting Timeset:TS_1500 with tCk:1500 @10028.7 ns
+tb.sr_change_period at time 10036.2 ns: INFO: Changing Clock Period to TS_1500 (1500 ps)
+Change Frequency to TS_750 during Self Refresh
+Setting Timeset:TS_750 with tCk:750 @11002.2 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_750 for tck:750 @11004.0 ns.
+Setting Timeset:TS_750 with tCk:750 @11004.0 ns
+tb.sr_change_period at time 11013.0 ns: INFO: Changing Clock Period to TS_750 (750 ps)
+Change Frequency to TS_750 during Self Refresh
+Setting Timeset:TS_1250 with tCk:1250 @11783.3 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @11785.5 ns.
+Setting Timeset:TS_1250 with tCk:1250 @11785.5 ns
+tb.sr_change_period at time 11793.0 ns: INFO: Changing Clock Period to TS_1250 (1250 ps)
+Forcing model configuration
+Setting Timeset:TS_833 with tCk:833 @13829.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_833 for tck:833 @13831.8 ns.
+Setting Timeset:TS_833 with tCk:833 @13831.8 ns
+tb.sr_change_period at time 13841.0 ns: INFO: Changing Clock Period to TS_833 (833 ps)
+Setting Timeset:TS_833 with tCk:833 @14012.6 ns
+Setting Timeset:TS_833 with tCk:833 @14652.3 ns
+Reading memory initialized with a file
+Initializing memory from data in 'memory_file.txt'.
+	Reading data in x8 and bl:8 mode (Change with 'config <4,8,16> <4,8>' in this file).
+
+Warning: Too many digits in hexadecimal number '7766554433221100', truncating to target size 32 bits
+  at time 14652294 in file MemoryArray.svp line 2
+
+
+Warning: Too many digits in hexadecimal number '6655443322110077', truncating to target size 32 bits
+  at time 14652294 in file MemoryArray.svp line 2
+
+	'memory_file.txt' set write data width to x16.
+	'memory_file.txt' set write data burst length to 8.
+
+Warning: Too many digits in hexadecimal number '88887777666655554444333322221111', truncating to target size 32 bits
+  at time 14652294 in file MemoryArray.svp line 2
+
+Writing [0][0][0][0] ad908c8a2a6cc0782c7793f9586de0dc
+Reading [0][0][0][0] xx90xx8axx6cxx78xx77xxf9xx6dxxdc
+Writing [0][1][3][2] 2ba86a7ceec10b49b34c73380ebcb217
+Reading [0][1][3][2] xxa8xx7cxxc1xx49xx4cxx38xxbcxx17
+Writing [0][2][6][4] 1e3aad43796d370d4352040babd34b14
+Reading [0][2][6][4] xx3axx43xx6dxx0dxx52xx0bxxd3xx14
+Writing [0][3][9][6] 596fd176f93a28609351a4e9c02f1f4
+Reading [0][3][9][6] xx96xx17xx93xx86xx35xx4exx02xxf4
+Writing [1][0][c][8] 599d6d3741289ede0953a6d77529c345
+Reading [1][0][c][8] xx9dxx37xx28xxdexx53xxd7xx29xx45
+Writing [1][1][f][a] a833baeb1228cca09fc9c65722c37d1d
+Reading [1][1][f][a] xx33xxebxx28xxa0xxc9xx57xxc3xx1d
+Writing [1][2][12][c] cd0e1e88de862cf9c5653776a826049f
+Reading [1][2][12][c] xx0exx88xx86xxf9xx65xx76xx26xx9f
+Writing [1][3][15][e] 4ee55d2272c47cbec93eed0a5f6c36f
+Reading [1][3][15][e] xxeexxd2xx2cxxcbxx93xxd0xxf6xx6f
+Writing [2][0][18][10] d1dd57d9ac4a917a8114d9f935647d77
+Reading [2][0][18][10] xxddxxd9xx4axx7axx14xxf9xx64xx77
+Writing [2][1][1b][12] f24e9cc71b6f2a581ece19c792bbd8a0
+Reading [2][1][1b][12] xx4exxc7xx6fxx58xxcexxc7xxbbxxa0
+Writing [2][2][1e][14] a4d34f6dfbecc66cb3568198240256c0
+Reading [2][2][1e][14] xxd3xx6dxxecxx6cxx56xx98xx02xxc0
+Writing [2][3][21][16] 6319475d0a761f0ce20aa4fd6e465ca3
+Reading [2][3][21][16] xx19xx5dxx76xx0cxx0axxfdxx46xxa3
+Writing [3][0][24][18] 583653680e62fe670a23d85e60fd5214
+Reading [3][0][24][18] xx36xx68xx62xx67xx23xx5exxfdxx14
+Writing [3][1][27][1a] 262bddd580f4af53ba26ab6407a93581
+Reading [3][1][27][1a] xx2bxxd5xxf4xx53xx26xx64xxa9xx81
+Writing [3][2][2a][1c] 49c3c652d05218b9e1b546f921011bf5
+Reading [3][2][2a][1c] xxc3xx52xx52xxb9xxb5xxf9xx01xxf5
+Writing [3][3][2d][1e] e6ff710a4fb973d3f68945248c892d8
+Reading [3][3][2d][1e] xx6fxx10xxfbxx3dxx68xx52xxc8xxd8
+Writing [0][0][30][20] 59c2af5f58966116255b73a285b26327
+Reading [0][0][30][20] xxc2xx5fxx96xx16xx5bxxa2xxb2xx27
+Writing [0][1][33][22] b470869af58b1ec353a5016e9cde83fb
+Reading [0][1][33][22] xx70xx9axx8bxxc3xxa5xx6exxdexxfb
+Writing [0][2][36][24] f9ec93037524a60874dc6108299ea823
+Reading [0][2][36][24] xxecxx03xx24xx08xxdcxx08xx9exx23
+Writing [0][3][39][26] 5247b4e2dc5ce96a359a3b44f04d019
+Reading [0][3][39][26] xx24xx4exxc5xx96xx59xxb4xx04xx19
+Writing [1][0][3c][28] 72535eee2b43012ba7daef6f3041bd29
+Reading [1][0][3c][28] xx53xxeexx43xx2bxxdaxx6fxx41xx29
+Writing [1][1][3f][2a] 98f8b1c8507bc2f9a12fd1b9d6e13a9a
+Reading [1][1][3f][2a] xxf8xxc8xx7bxxf9xx2fxxb9xxe1xx9a
+Writing [1][2][42][2c] 98c7206ec75c346a2ec8858cd895d826
+Reading [1][2][42][2c] xxc7xx6exx5cxx6axxc8xx8cxx95xx26
+Writing [1][3][45][2e] 1e2ab8eec4859a7c850f29685491ac5c
+Reading [1][3][45][2e] xx2axxeexx85xx7cxx0fxx68xx91xx5c
+Writing [2][0][48][30] 4316dd43c1bb95f855d2b6d209312533
+Reading [2][0][48][30] xx16xx43xxbbxxf8xxd2xxd2xx31xx33
+Writing [2][1][4b][32] 44a437c091b1248c9cd06941fae81af1
+Reading [2][1][4b][32] xxa4xxc0xxb1xx8cxxd0xx41xxe8xxf1
+Writing [2][2][4e][34] 40f8dfc60906d8d6a965a5a679ccbba4
+Reading [2][2][4e][34] xxf8xxc6xx06xxd6xx65xxa6xxccxxa4
+Writing [2][3][51][36] a55721b9ee10defa2c070d6a63e11e77
+Reading [2][3][51][36] xx57xxb9xx10xxfaxx07xx6axxe1xx77
+Writing [3][0][54][38] ccb05cd9c50c6bbd19b30abbcb0f13f0
+Reading [3][0][54][38] xxb0xxd9xx0cxxbdxxb3xxbbxx0fxxf0
+Writing [3][1][57][3a] a0bf0c3070756b1a3bdcf31a592ebfac
+Reading [3][1][57][3a] xxbfxx30xx75xx1axxdcxx1axx2exxac
+Writing [3][2][5a][3c] 1fa39048dbb6509875b7d9c5f1852e09
+Reading [3][2][5a][3c] xxa3xx48xxb6xx98xxb7xxc5xx85xx09
+Writing [3][3][5d][3e] 5000570f2d87432ec88f571b765f5e34
+Reading [3][3][5d][3e] xx00xx0fxx87xx2exx8fxx1bxx5fxx34
+Writing [0][0][60][40] bacc19abe57d57fd68ade5cfa3129b10
+Reading [0][0][60][40] xxccxxabxx7dxxfdxxadxxcfxx12xx10
+Writing [0][1][63][42] 4fc3653791b154d5e6b72e37f5f8d065
+Reading [0][1][63][42] xxc3xx37xxb1xxd5xxb7xx37xxf8xx65
+Writing [0][2][66][44] 3b337913031c645c722dc27bd3840059
+Reading [0][2][66][44] xx33xx13xx1cxx5cxx2dxx7bxx84xx59
+Writing [0][3][69][46] ef3ea326171ec32d7ef71e9ec51dae7b
+Reading [0][3][69][46] xx3exx26xx1exx2dxxf7xx9exx1dxx7b
+Writing [1][0][6c][48] 88e84a0ede41875f73f64fa366bcb43e
+Reading [1][0][6c][48] xxe8xx0exx41xx5fxxf6xxa3xxbcxx3e
+Writing [1][1][6f][4a] a0c63c1ebe9a29f8560aa879ae707fe9
+Reading [1][1][6f][4a] xxc6xx1exx9axxf8xx0axx79xx70xxe9
+Writing [1][2][72][4c] 51a42c850439c9f8f2a16f9a97961410
+Reading [1][2][72][4c] xxa4xx85xx39xxf8xxa1xx9axx96xx10
+Writing [1][3][75][4e] 7014aeaefdf7c12cbbd61232020ed22f
+Reading [1][3][75][4e] xx14xxaexxf7xx2cxxd6xx32xx0exx2f
+Writing [2][0][78][50] 76612d99bf7859be01bd4e5cc8faddfa
+Reading [2][0][78][50] xx61xx99xx78xxbexxbdxx5cxxfaxxfa
+Writing [2][1][7b][52] 97dbba6e6d636f7a4cb744e67874154a
+Reading [2][1][7b][52] xxdbxx6exx63xx7axxb7xxe6xx74xx4a
+Writing [2][2][7e][54] 344e3430d66a969f2ed8d7f4d6a2dc20
+Reading [2][2][7e][54] xx4exx30xx6axx9fxxd8xxf4xxa2xx20
+Writing [2][3][81][56] 8a3f51e72632e861dcd60b3f892a3463
+Reading [2][3][81][56] xx3fxxe7xx32xx61xxd6xx3fxx2axx63
+Writing [3][0][84][58] 2e4fd40d3ae87597f286f75b9303d946
+Reading [3][0][84][58] xx4fxx0dxxe8xx97xx86xx5bxx03xx46
+Writing [3][1][87][5a] 8427711792f1e5065e487a31907f25da
+Reading [3][1][87][5a] xx27xx17xxf1xx06xx48xx31xx7fxxda
+Writing [3][2][8a][5c] 29ca9ca13c6b30abd5113142e3374bd2
+Reading [3][2][8a][5c] xxcaxxa1xx6bxxabxx11xx42xx37xxd2
+Writing [3][3][8d][5e] 66482613fcc3b2c866bfadb5bae84cf9
+Reading [3][3][8d][5e] xx48xx13xxc3xxc8xxbfxxb5xxe8xxf9
+Writing [0][0][90][60] 1e94d5cdaa22b8e7d2a25de491039e01
+Reading [0][0][90][60] xx94xxcdxx22xxe7xxa2xxe4xx03xx01
+Writing [0][1][93][62] 53bf0453ec57a8215ea57420ab0df4a9
+Reading [0][1][93][62] xxbfxx53xx57xx21xxa5xx20xx0dxxa9
+Writing [0][2][96][64] 45bc167a933aa40e1e12b03448c588eb
+Reading [0][2][96][64] xxbcxx7axx3axx0exx12xx34xxc5xxeb
+Writing [0][3][99][66] 160d5d1ec325d6657d229e4f2f23a6c
+Reading [0][3][99][66] xx60xxd1xx32xx66xxd2xxe4xxf2xx6c
+Writing [1][0][9c][68] f98fb2430374f8c32d5158f907624d7a
+Reading [1][0][9c][68] xx8fxx43xx74xxc3xx51xxf9xx62xx7a
+Writing [1][1][9f][6a] 5d52f8b00f43368958643f06ef31b148
+Reading [1][1][9f][6a] xx52xxb0xx43xx89xx64xx06xx31xx48
+Writing [1][2][a2][6c] 2bf64a127eaea2eb8a20e83e407ecf4b
+Reading [1][2][a2][6c] xxf6xx12xxaexxebxx20xx3exx7exx4b
+Writing [1][3][a5][6e] d3c1dee2595233cb9ebc396734d6a3f6
+Reading [1][3][a5][6e] xxc1xxe2xx52xxcbxxbcxx67xxd6xxf6
+Writing [2][0][a8][70] c589a59acea9798b262b2e536db96be
+Reading [2][0][a8][70] xx58xx59xxeaxx98xx62xxe5xxdbxxbe
+Writing [2][1][ab][72] 4a4e55e04aac4742d6be97fbfc44bba1
+Reading [2][1][ab][72] xx4exxe0xxacxx42xxbexxfbxx44xxa1
+Writing [2][2][ae][74] bfb4086444d411cb96d5cf386a24a73e
+Reading [2][2][ae][74] xxb4xx64xxd4xxcbxxd5xx38xx24xx3e
+Writing [2][3][b1][76] 44427f1ed5a737e900c0794df1e6c776
+Reading [2][3][b1][76] xx42xx1exxa7xxe9xxc0xx4dxxe6xx76
+Writing [3][0][b4][78] 194209a02cdc0052a931d32a6ac55336
+Reading [3][0][b4][78] xx42xxa0xxdcxx52xx31xx2axxc5xx36
+Writing [3][1][b7][7a] d694ac532f7a61767bb63bd9cffedeaf
+Reading [3][1][b7][7a] xx94xx53xx7axx76xxb6xxd9xxfexxaf
+Writing [3][2][ba][7c] 14a6da40c1fc8349a2a369fe8cfad125
+Reading [3][2][ba][7c] xxa6xx40xxfcxx49xxa3xxfexxfaxx25
+Writing [3][3][bd][7e] f3b03ec71a8d83099082c68ef9686f8d
+Reading [3][3][bd][7e] xxb0xxc7xx8dxx09xx82xx8exx68xx8d
+=== MY CUSTOM TEST START ===
+Using config: CL=18 CWL=14 WL=14 RL=18 BL=8
+         14
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20649.1 ns
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20649.5 ns
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20649.9 ns
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20650.3 ns
+=== MY CUSTOM TEST END ===
+tb.test_done at time 20706.5 ns: INFO: Simulation is Complete
+Simulation complete, time is 20706538 ps.
+Warning: [DVIT111] 
+The design was not compiled with stack debug option.
+Stack debugging cannot be supported for Stack and Local Panes.
+To enable stack debugging capabilities, please compile the design with option '-debug_access+all'.
+Please recompile using the '-debug_access<+options>' switch and incremental options as required.  Recommended options are '-debug_access' for post-process debug, '-debug_access+class' for testbench debug, and '-debug_access+all' for all debug capabilities.  Refer the VCS user guide for more granular options for debug control under the switch '-debug_access' and refer to '-debug_region' for region control.
+Chronologic VCS simulator copyright 1991-2022
+Contains Synopsys proprietary information.
+Compiler version T-2022.06_Full64; Runtime version T-2022.06_Full64;  Nov  8 00:25 2025
+VCD+ Writer T-2022.06_Full64 Copyright (c) 1991-2022 by Synopsys Inc.
+The file '/home/ecelrc/students/sg57827/vlsi1/dram_vlsi/ddr4-verilog-models/protected_vcs/inter.vpd' was opened successfully.
+Loading timesets for 'tb.golden_model.LoadTiming' @0
+	Loaded timeset:TS_1875
+	Loaded timeset:TS_1500
+	Loaded timeset:TS_1250
+	Loaded timeset:TS_1072
+	Loaded timeset:TS_938
+	Loaded timeset:TS_833
+	Loaded timeset:TS_750
+	Loaded timeset:TS_682
+	Loaded timeset:TS_625
+	Loaded timeset:TS_560
+	Loaded timeset:TS_500
+Setting Timeset:TS_1500 with tCk:1500 @0
+Model based on DDR4 DDS version 0.998 6/06/2014
+Model configured as 2G x8 ranks:1
+Loading timesets for 'tb.LoadTiming' @0
+	Loaded timeset:TS_1875
+	Loaded timeset:TS_1500
+	Loaded timeset:TS_1250
+	Loaded timeset:TS_1072
+	Loaded timeset:TS_938
+	Loaded timeset:TS_833
+	Loaded timeset:TS_750
+	Loaded timeset:TS_682
+	Loaded timeset:TS_625
+	Loaded timeset:TS_560
+	Loaded timeset:TS_500
+Setting Timeset:TS_1250 with tCk:1250 @0.0 ns
+tb.default_period at time 0.0 ns: INFO: Default Clock Period to TS_1250 (1250 ps)
+Model:Cleared MemoryArray @0.0 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @3.1 ns.
+Setting Timeset:TS_1250 with tCk:1250 @3.1 ns
+tb.golden_model.always_diff_ck.if_diff_ck:Initialization complete @1416.2 ns
+Consecutive WRITE (BL8) to WRITE (BL8)
+Consecutive WRITE (BL4) to WRITE (BL4)
+WRITE (BL4 on the fly) to READ (BL4 on the fly)
+READ (BL4) to WRITE (BL8)
+WRITE (BL8) to READ (BL4)
+READ (BL4) to WRITE (BL4)
+tRRD Timing
+Consecutive Writes
+Consecutive Reads
+Non Consecutive Writes
+Non Consecutive Reads
+Setting Timeset:TS_1875 with tCk:1875 @3215.6 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1875 for tck:1875 @3219.1 ns.
+Setting Timeset:TS_1875 with tCk:1875 @3219.1 ns
+tb.sr_change_period at time 3226.6 ns: INFO: Changing Clock Period to TS_1875 (1875 ps)
+Setting Timeset:TS_1500 with tCk:1500 @3427.2 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1500 for tck:1500 @3430.4 ns.
+Setting Timeset:TS_1500 with tCk:1500 @3430.4 ns
+tb.sr_change_period at time 3437.9 ns: INFO: Changing Clock Period to TS_1500 (1500 ps)
+Setting Timeset:TS_1250 with tCk:1250 @3635.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @3638.5 ns.
+Setting Timeset:TS_1250 with tCk:1250 @3638.5 ns
+tb.sr_change_period at time 3646.0 ns: INFO: Changing Clock Period to TS_1250 (1250 ps)
+Setting Timeset:TS_1072 with tCk:1072 @3841.0 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1072 for tck:1072 @3843.2 ns.
+Setting Timeset:TS_1072 with tCk:1072 @3843.2 ns
+tb.sr_change_period at time 3851.8 ns: INFO: Changing Clock Period to TS_1072 (1072 ps)
+Setting Timeset:TS_938 with tCk:938 @4048.0 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_938 for tck:938 @4049.9 ns.
+Setting Timeset:TS_938 with tCk:938 @4049.9 ns
+tb.sr_change_period at time 4058.4 ns: INFO: Changing Clock Period to TS_938 (938 ps)
+Setting Timeset:TS_833 with tCk:833 @4253.5 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_833 for tck:833 @4255.2 ns.
+Setting Timeset:TS_833 with tCk:833 @4255.2 ns
+tb.sr_change_period at time 4264.4 ns: INFO: Changing Clock Period to TS_833 (833 ps)
+Setting Timeset:TS_750 with tCk:750 @4460.1 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_750 for tck:750 @4461.7 ns.
+Setting Timeset:TS_750 with tCk:750 @4461.7 ns
+tb.sr_change_period at time 4470.7 ns: INFO: Changing Clock Period to TS_750 (750 ps)
+Setting Timeset:TS_682 with tCk:682 @4664.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_682 for tck:682 @4666.3 ns.
+Setting Timeset:TS_682 with tCk:682 @4666.3 ns
+tb.sr_change_period at time 4675.2 ns: INFO: Changing Clock Period to TS_682 (682 ps)
+Setting Timeset:TS_625 with tCk:625 @4868.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_625 for tck:625 @4870.1 ns.
+Setting Timeset:TS_625 with tCk:625 @4870.1 ns
+tb.sr_change_period at time 4878.9 ns: INFO: Changing Clock Period to TS_625 (625 ps)
+Setting Timeset:TS_560 with tCk:560 @5071.4 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_560 for tck:560 @5072.5 ns.
+Setting Timeset:TS_560 with tCk:560 @5072.5 ns
+tb.sr_change_period at time 5081.5 ns: INFO: Changing Clock Period to TS_560 (560 ps)
+Setting Timeset:TS_500 with tCk:500 @5274.1 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_500 for tck:500 @5275.2 ns.
+Setting Timeset:TS_500 with tCk:500 @5275.2 ns
+tb.sr_change_period at time 5284.2 ns: INFO: Changing Clock Period to TS_500 (500 ps)
+Setting Timeset:TS_1250 with tCk:1250 @5476.2 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @5478.3 ns.
+Setting Timeset:TS_1250 with tCk:1250 @5478.3 ns
+tb.sr_change_period at time 5485.8 ns: INFO: Changing Clock Period to TS_1250 (1250 ps)
+Power-Down Entry after WRITE w/ AP (WRA)
+refresh to power down re-entry
+Power-Down Exit to Refresh to Power-Down Entry
+Change Frequency to TS_1500 during Self Refresh
+Setting Timeset:TS_1500 with tCk:1500 @10025.8 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1500 for tck:1500 @10028.7 ns.
+Setting Timeset:TS_1500 with tCk:1500 @10028.7 ns
+tb.sr_change_period at time 10036.2 ns: INFO: Changing Clock Period to TS_1500 (1500 ps)
+Change Frequency to TS_750 during Self Refresh
+Setting Timeset:TS_750 with tCk:750 @11002.2 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_750 for tck:750 @11004.0 ns.
+Setting Timeset:TS_750 with tCk:750 @11004.0 ns
+tb.sr_change_period at time 11013.0 ns: INFO: Changing Clock Period to TS_750 (750 ps)
+Change Frequency to TS_750 during Self Refresh
+Setting Timeset:TS_1250 with tCk:1250 @11783.3 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_1250 for tck:1250 @11785.5 ns.
+Setting Timeset:TS_1250 with tCk:1250 @11785.5 ns
+tb.sr_change_period at time 11793.0 ns: INFO: Changing Clock Period to TS_1250 (1250 ps)
+Forcing model configuration
+Setting Timeset:TS_833 with tCk:833 @13829.9 ns
+tb.golden_model.always_diff_ck.handle_ts:Updating timeset:TS_833 for tck:833 @13831.8 ns.
+Setting Timeset:TS_833 with tCk:833 @13831.8 ns
+tb.sr_change_period at time 13841.0 ns: INFO: Changing Clock Period to TS_833 (833 ps)
+Setting Timeset:TS_833 with tCk:833 @14012.6 ns
+Setting Timeset:TS_833 with tCk:833 @14652.3 ns
+Reading memory initialized with a file
+Initializing memory from data in 'memory_file.txt'.
+	Reading data in x8 and bl:8 mode (Change with 'config <4,8,16> <4,8>' in this file).
+
+Warning: Too many digits in hexadecimal number '7766554433221100', truncating to target size 32 bits
+  at time 14652294 in file MemoryArray.svp line 2
+
+
+Warning: Too many digits in hexadecimal number '6655443322110077', truncating to target size 32 bits
+  at time 14652294 in file MemoryArray.svp line 2
+
+	'memory_file.txt' set write data width to x16.
+	'memory_file.txt' set write data burst length to 8.
+
+Warning: Too many digits in hexadecimal number '88887777666655554444333322221111', truncating to target size 32 bits
+  at time 14652294 in file MemoryArray.svp line 2
+
+Writing [0][0][0][0] ad908c8a2a6cc0782c7793f9586de0dc
+Reading [0][0][0][0] xx90xx8axx6cxx78xx77xxf9xx6dxxdc
+Writing [0][1][3][2] 2ba86a7ceec10b49b34c73380ebcb217
+Reading [0][1][3][2] xxa8xx7cxxc1xx49xx4cxx38xxbcxx17
+Writing [0][2][6][4] 1e3aad43796d370d4352040babd34b14
+Reading [0][2][6][4] xx3axx43xx6dxx0dxx52xx0bxxd3xx14
+Writing [0][3][9][6] 596fd176f93a28609351a4e9c02f1f4
+Reading [0][3][9][6] xx96xx17xx93xx86xx35xx4exx02xxf4
+Writing [1][0][c][8] 599d6d3741289ede0953a6d77529c345
+Reading [1][0][c][8] xx9dxx37xx28xxdexx53xxd7xx29xx45
+Writing [1][1][f][a] a833baeb1228cca09fc9c65722c37d1d
+Reading [1][1][f][a] xx33xxebxx28xxa0xxc9xx57xxc3xx1d
+Writing [1][2][12][c] cd0e1e88de862cf9c5653776a826049f
+Reading [1][2][12][c] xx0exx88xx86xxf9xx65xx76xx26xx9f
+Writing [1][3][15][e] 4ee55d2272c47cbec93eed0a5f6c36f
+Reading [1][3][15][e] xxeexxd2xx2cxxcbxx93xxd0xxf6xx6f
+Writing [2][0][18][10] d1dd57d9ac4a917a8114d9f935647d77
+Reading [2][0][18][10] xxddxxd9xx4axx7axx14xxf9xx64xx77
+Writing [2][1][1b][12] f24e9cc71b6f2a581ece19c792bbd8a0
+Reading [2][1][1b][12] xx4exxc7xx6fxx58xxcexxc7xxbbxxa0
+Writing [2][2][1e][14] a4d34f6dfbecc66cb3568198240256c0
+Reading [2][2][1e][14] xxd3xx6dxxecxx6cxx56xx98xx02xxc0
+Writing [2][3][21][16] 6319475d0a761f0ce20aa4fd6e465ca3
+Reading [2][3][21][16] xx19xx5dxx76xx0cxx0axxfdxx46xxa3
+Writing [3][0][24][18] 583653680e62fe670a23d85e60fd5214
+Reading [3][0][24][18] xx36xx68xx62xx67xx23xx5exxfdxx14
+Writing [3][1][27][1a] 262bddd580f4af53ba26ab6407a93581
+Reading [3][1][27][1a] xx2bxxd5xxf4xx53xx26xx64xxa9xx81
+Writing [3][2][2a][1c] 49c3c652d05218b9e1b546f921011bf5
+Reading [3][2][2a][1c] xxc3xx52xx52xxb9xxb5xxf9xx01xxf5
+Writing [3][3][2d][1e] e6ff710a4fb973d3f68945248c892d8
+Reading [3][3][2d][1e] xx6fxx10xxfbxx3dxx68xx52xxc8xxd8
+Writing [0][0][30][20] 59c2af5f58966116255b73a285b26327
+Reading [0][0][30][20] xxc2xx5fxx96xx16xx5bxxa2xxb2xx27
+Writing [0][1][33][22] b470869af58b1ec353a5016e9cde83fb
+Reading [0][1][33][22] xx70xx9axx8bxxc3xxa5xx6exxdexxfb
+Writing [0][2][36][24] f9ec93037524a60874dc6108299ea823
+Reading [0][2][36][24] xxecxx03xx24xx08xxdcxx08xx9exx23
+Writing [0][3][39][26] 5247b4e2dc5ce96a359a3b44f04d019
+Reading [0][3][39][26] xx24xx4exxc5xx96xx59xxb4xx04xx19
+Writing [1][0][3c][28] 72535eee2b43012ba7daef6f3041bd29
+Reading [1][0][3c][28] xx53xxeexx43xx2bxxdaxx6fxx41xx29
+Writing [1][1][3f][2a] 98f8b1c8507bc2f9a12fd1b9d6e13a9a
+Reading [1][1][3f][2a] xxf8xxc8xx7bxxf9xx2fxxb9xxe1xx9a
+Writing [1][2][42][2c] 98c7206ec75c346a2ec8858cd895d826
+Reading [1][2][42][2c] xxc7xx6exx5cxx6axxc8xx8cxx95xx26
+Writing [1][3][45][2e] 1e2ab8eec4859a7c850f29685491ac5c
+Reading [1][3][45][2e] xx2axxeexx85xx7cxx0fxx68xx91xx5c
+Writing [2][0][48][30] 4316dd43c1bb95f855d2b6d209312533
+Reading [2][0][48][30] xx16xx43xxbbxxf8xxd2xxd2xx31xx33
+Writing [2][1][4b][32] 44a437c091b1248c9cd06941fae81af1
+Reading [2][1][4b][32] xxa4xxc0xxb1xx8cxxd0xx41xxe8xxf1
+Writing [2][2][4e][34] 40f8dfc60906d8d6a965a5a679ccbba4
+Reading [2][2][4e][34] xxf8xxc6xx06xxd6xx65xxa6xxccxxa4
+Writing [2][3][51][36] a55721b9ee10defa2c070d6a63e11e77
+Reading [2][3][51][36] xx57xxb9xx10xxfaxx07xx6axxe1xx77
+Writing [3][0][54][38] ccb05cd9c50c6bbd19b30abbcb0f13f0
+Reading [3][0][54][38] xxb0xxd9xx0cxxbdxxb3xxbbxx0fxxf0
+Writing [3][1][57][3a] a0bf0c3070756b1a3bdcf31a592ebfac
+Reading [3][1][57][3a] xxbfxx30xx75xx1axxdcxx1axx2exxac
+Writing [3][2][5a][3c] 1fa39048dbb6509875b7d9c5f1852e09
+Reading [3][2][5a][3c] xxa3xx48xxb6xx98xxb7xxc5xx85xx09
+Writing [3][3][5d][3e] 5000570f2d87432ec88f571b765f5e34
+Reading [3][3][5d][3e] xx00xx0fxx87xx2exx8fxx1bxx5fxx34
+Writing [0][0][60][40] bacc19abe57d57fd68ade5cfa3129b10
+Reading [0][0][60][40] xxccxxabxx7dxxfdxxadxxcfxx12xx10
+Writing [0][1][63][42] 4fc3653791b154d5e6b72e37f5f8d065
+Reading [0][1][63][42] xxc3xx37xxb1xxd5xxb7xx37xxf8xx65
+Writing [0][2][66][44] 3b337913031c645c722dc27bd3840059
+Reading [0][2][66][44] xx33xx13xx1cxx5cxx2dxx7bxx84xx59
+Writing [0][3][69][46] ef3ea326171ec32d7ef71e9ec51dae7b
+Reading [0][3][69][46] xx3exx26xx1exx2dxxf7xx9exx1dxx7b
+Writing [1][0][6c][48] 88e84a0ede41875f73f64fa366bcb43e
+Reading [1][0][6c][48] xxe8xx0exx41xx5fxxf6xxa3xxbcxx3e
+Writing [1][1][6f][4a] a0c63c1ebe9a29f8560aa879ae707fe9
+Reading [1][1][6f][4a] xxc6xx1exx9axxf8xx0axx79xx70xxe9
+Writing [1][2][72][4c] 51a42c850439c9f8f2a16f9a97961410
+Reading [1][2][72][4c] xxa4xx85xx39xxf8xxa1xx9axx96xx10
+Writing [1][3][75][4e] 7014aeaefdf7c12cbbd61232020ed22f
+Reading [1][3][75][4e] xx14xxaexxf7xx2cxxd6xx32xx0exx2f
+Writing [2][0][78][50] 76612d99bf7859be01bd4e5cc8faddfa
+Reading [2][0][78][50] xx61xx99xx78xxbexxbdxx5cxxfaxxfa
+Writing [2][1][7b][52] 97dbba6e6d636f7a4cb744e67874154a
+Reading [2][1][7b][52] xxdbxx6exx63xx7axxb7xxe6xx74xx4a
+Writing [2][2][7e][54] 344e3430d66a969f2ed8d7f4d6a2dc20
+Reading [2][2][7e][54] xx4exx30xx6axx9fxxd8xxf4xxa2xx20
+Writing [2][3][81][56] 8a3f51e72632e861dcd60b3f892a3463
+Reading [2][3][81][56] xx3fxxe7xx32xx61xxd6xx3fxx2axx63
+Writing [3][0][84][58] 2e4fd40d3ae87597f286f75b9303d946
+Reading [3][0][84][58] xx4fxx0dxxe8xx97xx86xx5bxx03xx46
+Writing [3][1][87][5a] 8427711792f1e5065e487a31907f25da
+Reading [3][1][87][5a] xx27xx17xxf1xx06xx48xx31xx7fxxda
+Writing [3][2][8a][5c] 29ca9ca13c6b30abd5113142e3374bd2
+Reading [3][2][8a][5c] xxcaxxa1xx6bxxabxx11xx42xx37xxd2
+Writing [3][3][8d][5e] 66482613fcc3b2c866bfadb5bae84cf9
+Reading [3][3][8d][5e] xx48xx13xxc3xxc8xxbfxxb5xxe8xxf9
+Writing [0][0][90][60] 1e94d5cdaa22b8e7d2a25de491039e01
+Reading [0][0][90][60] xx94xxcdxx22xxe7xxa2xxe4xx03xx01
+Writing [0][1][93][62] 53bf0453ec57a8215ea57420ab0df4a9
+Reading [0][1][93][62] xxbfxx53xx57xx21xxa5xx20xx0dxxa9
+Writing [0][2][96][64] 45bc167a933aa40e1e12b03448c588eb
+Reading [0][2][96][64] xxbcxx7axx3axx0exx12xx34xxc5xxeb
+Writing [0][3][99][66] 160d5d1ec325d6657d229e4f2f23a6c
+Reading [0][3][99][66] xx60xxd1xx32xx66xxd2xxe4xxf2xx6c
+Writing [1][0][9c][68] f98fb2430374f8c32d5158f907624d7a
+Reading [1][0][9c][68] xx8fxx43xx74xxc3xx51xxf9xx62xx7a
+Writing [1][1][9f][6a] 5d52f8b00f43368958643f06ef31b148
+Reading [1][1][9f][6a] xx52xxb0xx43xx89xx64xx06xx31xx48
+Writing [1][2][a2][6c] 2bf64a127eaea2eb8a20e83e407ecf4b
+Reading [1][2][a2][6c] xxf6xx12xxaexxebxx20xx3exx7exx4b
+Writing [1][3][a5][6e] d3c1dee2595233cb9ebc396734d6a3f6
+Reading [1][3][a5][6e] xxc1xxe2xx52xxcbxxbcxx67xxd6xxf6
+Writing [2][0][a8][70] c589a59acea9798b262b2e536db96be
+Reading [2][0][a8][70] xx58xx59xxeaxx98xx62xxe5xxdbxxbe
+Writing [2][1][ab][72] 4a4e55e04aac4742d6be97fbfc44bba1
+Reading [2][1][ab][72] xx4exxe0xxacxx42xxbexxfbxx44xxa1
+Writing [2][2][ae][74] bfb4086444d411cb96d5cf386a24a73e
+Reading [2][2][ae][74] xxb4xx64xxd4xxcbxxd5xx38xx24xx3e
+Writing [2][3][b1][76] 44427f1ed5a737e900c0794df1e6c776
+Reading [2][3][b1][76] xx42xx1exxa7xxe9xxc0xx4dxxe6xx76
+Writing [3][0][b4][78] 194209a02cdc0052a931d32a6ac55336
+Reading [3][0][b4][78] xx42xxa0xxdcxx52xx31xx2axxc5xx36
+Writing [3][1][b7][7a] d694ac532f7a61767bb63bd9cffedeaf
+Reading [3][1][b7][7a] xx94xx53xx7axx76xxb6xxd9xxfexxaf
+Writing [3][2][ba][7c] 14a6da40c1fc8349a2a369fe8cfad125
+Reading [3][2][ba][7c] xxa6xx40xxfcxx49xxa3xxfexxfaxx25
+Writing [3][3][bd][7e] f3b03ec71a8d83099082c68ef9686f8d
+Reading [3][3][bd][7e] xxb0xxc7xx8dxx09xx82xx8exx68xx8d
+=== MY CUSTOM TEST START ===
+Using config: CL=18 CWL=14 WL=14 RL=18 BL=8
+         14
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20649.1 ns
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20649.5 ns
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20649.9 ns
+tb.golden_model.always_diff_ck.handle_wr_pipe:WARNING:Expecting DQS to toggle around write burst @20650.3 ns
+=== MY CUSTOM TEST END ===
+tb.test_done at time 20706.5 ns: INFO: Simulation is Complete
+Simulation complete, time is 20706538 ps.
+Warning: [DVIT111] 
+The design was not compiled with stack debug option.
+Stack debugging cannot be supported for Stack and Local Panes.
+To enable stack debugging capabilities, please compile the design with option '-debug_access+all'.
+Please recompile using the '-debug_access<+options>' switch and incremental options as required.  Recommended options are '-debug_access' for post-process debug, '-debug_access+class' for testbench debug, and '-debug_access+all' for all debug capabilities.  Refer the VCS user guide for more granular options for debug control under the switch '-debug_access' and refer to '-debug_region' for region control.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 20706538 ps
+
+Warning-[DEBUG_DEP] Option will be deprecated
+  The option '-debug_pp' will be deprecated in a future release.  Please use 
+  '-debug_acc+pp+dmptf -debug_region+cell+encrypt' instead.
+
+*** Using vcs compiler /usr/local/packages/synopsys_2022/vcs/T-2022.06/linux64/bin/vcs1 instead of /usr/local/packages/synopsys_2022/vcs/T-2022.06/linux64/bin/vcs1...
+                         Chronologic VCS (TM)
+         Version T-2022.06_Full64 -- Sat Nov  8 00:34:55 2025
+
+                    Copyright (c) 1991 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file 'arch_package.sv'
+Parsing included file 'arch_defines.v'.
+Back to file 'arch_package.sv'.
+Parsing design file 'proj_package.sv'
+Parsing design file 'interface.sv'
+Parsing design file 'StateTable.svp'
+Parsing included file 'StateTableCore.svp'.
+Back to file 'StateTable.svp'.
+Parsing design file 'MemoryArray.svp'
+Parsing design file 'ddr4_model.svp'
+Parsing included file 'arch_defines.v'.
+Back to file 'ddr4_model.svp'.
+Parsing included file 'StateTable.svp'.
+Back to file 'ddr4_model.svp'.
+Parsing included file 'MemoryArray.svp'.
+Back to file 'ddr4_model.svp'.
+Parsing included file 'timing_tasks.sv'.
+Back to file 'ddr4_model.svp'.
+Parsing design file 'tb.sv'
+Parsing included file 'arch_defines.v'.
+Back to file 'tb.sv'.
+Parsing included file 'StateTable.svp'.
+Back to file 'tb.sv'.
+Parsing included file 'timing_tasks.sv'.
+Back to file 'tb.sv'.
+Parsing included file 'subtest.vh'.
+Back to file 'tb.sv'.
+Top Level Modules:
+       tb
+TimeScale is 1 ps / 1 ps
+Notice: Ports coerced to inout, use -notice for details
+Starting vcs inline pass...
+8 modules and 0 UDP read.
+recompiling module tb
+	However, due to incremental compilation, only 1 module needs to be compiled. 
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+ld -shared  -Bsymbolic --no-relax  -o .//../simv.daidir//_cuarc0.so objs/amcQw_d.o 
+rm -f _cuarc0.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/usr/local/packages/synopsys_2022/vcs/T-2022.06/linux64/lib -L/usr/local/packages/synopsys_2022/vcs/T-2022.06/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1     _1333251_archive_1.so _prev_archive_1.so _cuarc0.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o           -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /usr/local/packages/synopsys_2022/vcs/T-2022.06/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive          /usr/local/packages/synopsys_2022/vcs/T-2022.06/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+
+Warning-[DVEENVDIRNFND] DVE warning
+  Environment variable DVE is set. Please unset it.
+

@@ -1,0 +1,68 @@
+{
+    "_vcs_unit__17166948": [
+        "_vcs_unit__17166948",
+        "zxgxz",
+        "module",
+        1
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module",
+        2
+    ],
+    "arch_package": [
+        "arch_package",
+        "N6xgv",
+        "module",
+        3
+    ],
+    "proj_package": [
+        "proj_package",
+        "MEiE8",
+        "module",
+        4
+    ],
+    "DDR4_if": [
+        "DDR4_if",
+        "Dixed",
+        "module",
+        5
+    ],
+    "StateTable": [
+        "StateTable",
+        "UAAga",
+        "module",
+        6
+    ],
+    "MemArray": [
+        "MemArray",
+        "qWWMD",
+        "module",
+        7
+    ],
+    "ddr4_model_0000": [
+        "ddr4_model_0000",
+        "qcn4s",
+        "module",
+        8
+    ],
+    "tb": [
+        "tb",
+        "g7hgQ",
+        "module",
+        9
+    ],
+    "dqrx": [
+        "dqrx",
+        "bTxUW",
+        "module",
+        10
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        11
+    ]
+}
