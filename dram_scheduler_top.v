@@ -58,7 +58,8 @@ module dram_scheduler_top (
     assign schedule_busy = (top_state != 0);
     assign schedule_done = (top_state == 3); // Done state
     
-    assign gen_start = (top_state == 2 && !gen_busy_sig && !batch_busy_sig);
+    // FIX: Add !gen_done_sig to prevent re-triggering in the cycle top_state transitions
+    assign gen_start = (top_state == 2 && !gen_busy_sig && !batch_busy_sig && !gen_done_sig);
 
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) top_state <= 0;
@@ -72,12 +73,8 @@ module dram_scheduler_top (
         end
     end
     
-    // FIX: Separated Clears
-    // scratchpad_clear: Resets intermediate tables/schedule memory when a NEW batch starts.
-    wire scratchpad_clear = schedule_start; 
-    
-    // req_buf_clear: Should NOT trigger on schedule_start, or we wipe the input!
-    // Tied to 0, relying on rst_n for initialization/reset between tests.
+    // FIX: Clear ONLY on start, not on done. 
+    wire batch_clear = schedule_start; 
     wire req_buf_clear = 1'b0;
 
     // =========================================================================
@@ -163,7 +160,6 @@ module dram_scheduler_top (
     // =========================================================================
     
     // 1. Request Buffer
-    // -------------------------------------------------------------------------
     wire        bs_req_chain_wr_en;
     wire [`REQUEST_ID_WIDTH-1:0]  bs_req_chain_wr_addr;
     wire [`REQUEST_ID_WIDTH-1:0]  bs_req_chain_wr_data;
@@ -179,7 +175,7 @@ module dram_scheduler_top (
         .clk(clk), .rst_n(rst_n),
         .req_valid(req_valid), .req_bank_group(req_bank_group), .req_bank(req_bank),
         .req_row(req_row), .req_column(req_column), .req_ready(req_ready),
-        .batch_start(batch_start), .batch_clear(req_buf_clear), // FIX: Connected to req_buf_clear
+        .batch_start(batch_start), .batch_clear(req_buf_clear), 
         .num_requests(req_buf_num_requests),
         .rd_addr(req_buf_rd_addr),
         .rd_bank_group(req_buf_rd_bank_group), .rd_bank(req_buf_rd_bank),
@@ -192,7 +188,6 @@ module dram_scheduler_top (
     );
     
     // 2. SRR Table
-    // -------------------------------------------------------------------------
     wire        bs_srr_wr_en;
     wire [`HIT_TAG_WIDTH-1:0] bs_srr_wr_tag;
     wire [`REQUEST_ID_WIDTH-1:0]  bs_srr_wr_head;
@@ -213,7 +208,7 @@ module dram_scheduler_top (
     srr_table #(
         .MAX_ENTRIES(`MAX_SRR_ENTRIES)
     ) u_srr_table (
-        .clk(clk), .rst_n(rst_n), .clear(scratchpad_clear), // FIX: Use scratchpad_clear
+        .clk(clk), .rst_n(rst_n), .clear(batch_clear),
         .num_entries(srr_num_entries),
         .wr_en(bs_srr_wr_en), .wr_hit_tag(bs_srr_wr_tag), .wr_head_req(bs_srr_wr_head),
         .wr_full(bs_srr_full), .wr_addr(bs_srr_wr_addr),
@@ -227,7 +222,6 @@ module dram_scheduler_top (
     );
     
     // 3. SBR Table
-    // -------------------------------------------------------------------------
     wire        bs_sbr_wr_en;
     wire [`MISS_TAG_WIDTH-1:0]  bs_sbr_wr_tag;
     wire [`BANK_GROUP_WIDTH-1:0]  bs_sbr_wr_bg;
@@ -253,7 +247,7 @@ module dram_scheduler_top (
     sbr_table #(
         .MAX_ENTRIES(`MAX_SBR_ENTRIES)
     ) u_sbr_table (
-        .clk(clk), .rst_n(rst_n), .clear(scratchpad_clear), // FIX: Use scratchpad_clear
+        .clk(clk), .rst_n(rst_n), .clear(batch_clear),
         .num_entries(sbr_num_entries),
         .wr_en(bs_sbr_wr_en), .wr_miss_tag(bs_sbr_wr_tag), .wr_bank_group(bs_sbr_wr_bg), .wr_bank(bs_sbr_wr_b), .wr_head_srr(bs_sbr_wr_head),
         .wr_full(bs_sbr_full), .wr_addr(bs_sbr_wr_addr),
@@ -267,7 +261,6 @@ module dram_scheduler_top (
         .find_max_en(bs_sbr_find_max), .max_addr(bs_sbr_max_addr), .max_requests(bs_sbr_max_reqs)
     );
     
-    // 4. Batch Scheduler
     batch_scheduler u_batch_scheduler (
         .clk(clk), .rst_n(rst_n),
         .start(batch_start), .done(batch_done_sig), .busy(batch_busy_sig),
@@ -280,7 +273,7 @@ module dram_scheduler_top (
         .srr_cam_lookup_en(bs_srr_cam_en), .srr_cam_lookup_tag(bs_srr_cam_tag), .srr_cam_hit(bs_srr_cam_hit), .srr_cam_hit_addr(bs_srr_cam_addr),
         .srr_rd_addr(bs_srr_rd_addr), .srr_rd_count(srr_rd_count), .srr_rd_head_req(srr_rd_head_req), .srr_rd_tail_req(srr_rd_tail_req), .srr_rd_miss_tag(req_buf_rd_miss_tag),
         .srr_chain_wr_en(bs_srr_chain_wr_en), .srr_chain_wr_addr(bs_srr_chain_wr_addr), .srr_chain_wr_data(bs_srr_chain_wr_data), .srr_num_entries(srr_num_entries),
-        .sbr_wr_en(bs_sbr_wr_en), .sbr_wr_miss_tag(bs_sbr_wr_tag), .sbr_wr_bank_group(bs_sbr_wr_bg), .sbr_wr_bank(bs_sbr_wr_b), .sbr_wr_head_srr(bs_sbr_wr_head), .sbr_wr_addr(bs_sbr_wr_addr), .sbr_wr_full(bs_sbr_full),
+        .sbr_wr_en(bs_sbr_wr_en), .sbr_wr_miss_tag(bs_sbr_wr_tag), .sbr_wr_bank_group(bs_sbr_wr_bg), .sbr_wr_bank(bs_sbr_wr_b), .sbr_wr_head_srr(bs_sbr_wr_head), .sbr_wr_addr(bs_sbr_wr_addr), .sbr_wr_full(bs_sbr_wr_full),
         .sbr_upd_en(bs_sbr_upd_en), .sbr_upd_addr(bs_sbr_upd_addr), .sbr_upd_total_requests(bs_sbr_upd_reqs), .sbr_upd_row_count(bs_sbr_upd_rows), .sbr_upd_tail_srr(bs_sbr_upd_tail),
         .sbr_cam_lookup_en(bs_sbr_cam_en), .sbr_cam_lookup_tag(bs_sbr_cam_tag), .sbr_cam_hit(bs_sbr_cam_hit), .sbr_cam_hit_addr(bs_sbr_cam_addr),
         .sbr_rd_addr(bs_sbr_rd_addr), .sbr_rd_total_requests(sbr_rd_total_reqs), .sbr_rd_row_count(sbr_rd_row_cnt), .sbr_rd_tail_srr(sbr_rd_tail_srr),
@@ -288,35 +281,59 @@ module dram_scheduler_top (
         .critical_path_sbr(critical_path_sbr)
     );
 
-    // 5. Bank State Tracker
     bank_state_tracker u_bank_state_tracker (
-        .clk(clk), .rst_n(rst_n), .clear(scratchpad_clear), // FIX: Use scratchpad_clear
+        .clk(clk), .rst_n(rst_n), .clear(batch_clear),
         .query_bank_group(bst_query_bank_group), .query_bank(bst_query_bank),
         .is_precharged(bst_is_precharged), .is_row_open(bst_is_row_open), .open_row(bst_open_row),
         .upd_activate(bst_upd_activate), .upd_precharge(bst_upd_precharge),
         .upd_bank_group(bst_upd_bank_group), .upd_bank(bst_upd_bank), .upd_row(bst_upd_row)
     );
 
-    // 6. Schedule Generator
     schedule_generator u_schedule_generator (
-        .clk(clk), .rst_n(rst_n),
-        .start(gen_start), .done(gen_done_sig), .busy(gen_busy_sig),
-        .critical_path_sbr(critical_path_sbr), .num_sbr_entries(sbr_num_entries),
-        .sbr_rd_addr(gen_sbr_rd_addr), .sbr_rd_bank_group(sbr_rd_bank_group), .sbr_rd_bank(sbr_rd_bank), .sbr_rd_head_srr(sbr_rd_head_srr),
-        .srr_rd_addr(gen_srr_rd_addr), .srr_rd_hit_tag(srr_rd_hit_tag), .srr_rd_head_req(srr_rd_head_req), .srr_rd_chain_next(srr_rd_chain_next), .srr_rd_chain_valid(srr_rd_chain_valid),
-        .req_rd_addr(gen_req_rd_addr), .req_rd_chain_next(req_buf_rd_chain_next), .req_rd_chain_valid(req_buf_rd_chain_valid),
-        .bst_query_bank_group(bst_query_bank_group), .bst_query_bank(bst_query_bank),
-        .bst_is_precharged(bst_is_precharged), .bst_is_row_open(bst_is_row_open), .bst_open_row(bst_open_row),
-        .bst_upd_activate(bst_upd_activate), .bst_upd_precharge(bst_upd_precharge), .bst_upd_bank_group(bst_upd_bank_group), .bst_upd_bank(bst_upd_bank), .bst_upd_row(bst_upd_row),
-        .sched_wr_en(sched_wr_en), .sched_wr_cycle(sched_wr_cycle), .sched_wr_cmd_type(sched_wr_cmd_type), .sched_wr_bank_group(sched_wr_bank_group), .sched_wr_bank(sched_wr_bank),
-        .sched_wr_row(sched_wr_row), .sched_wr_column(sched_wr_column), .sched_wr_request_id(sched_wr_request_id)
+        .clk(clk),
+        .rst_n(rst_n),
+        .start(gen_start),
+        .done(gen_done_sig),
+        .busy(gen_busy_sig),
+        .critical_path_sbr(critical_path_sbr),
+        .num_sbr_entries(sbr_num_entries),
+        .sbr_rd_addr(gen_sbr_rd_addr),
+        .sbr_rd_bank_group(sbr_rd_bank_group),
+        .sbr_rd_bank(sbr_rd_bank),
+        .sbr_rd_head_srr(sbr_rd_head_srr),
+        .srr_rd_addr(gen_srr_rd_addr),
+        .srr_rd_hit_tag(srr_rd_hit_tag),
+        .srr_rd_head_req(srr_rd_head_req),
+        .srr_rd_chain_next(srr_rd_chain_next),
+        .srr_rd_chain_valid(srr_rd_chain_valid),
+        .req_rd_addr(gen_req_rd_addr),
+        .req_rd_chain_next(req_buf_rd_chain_next),
+        .req_rd_chain_valid(req_buf_rd_chain_valid),
+        .req_rd_column(req_buf_rd_column), 
+        .bst_query_bank_group(bst_query_bank_group),
+        .bst_query_bank(bst_query_bank),
+        .bst_is_precharged(bst_is_precharged),
+        .bst_is_row_open(bst_is_row_open),
+        .bst_open_row(bst_open_row),
+        .bst_upd_activate(bst_upd_activate),
+        .bst_upd_precharge(bst_upd_precharge),
+        .bst_upd_bank_group(bst_upd_bank_group),
+        .bst_upd_bank(bst_upd_bank),
+        .bst_upd_row(bst_upd_row),
+        .sched_wr_en(sched_wr_en),
+        .sched_wr_cycle(sched_wr_cycle),
+        .sched_wr_cmd_type(sched_wr_cmd_type),
+        .sched_wr_bank_group(sched_wr_bank_group),
+        .sched_wr_bank(sched_wr_bank),
+        .sched_wr_row(sched_wr_row),
+        .sched_wr_column(sched_wr_column),
+        .sched_wr_request_id(sched_wr_request_id)
     );
 
-    // 7. Schedule Memory
     schedule_memory #(
         .MAX_CYCLES(`MAX_SCHEDULE_CYCLES)
     ) u_schedule_memory (
-        .clk(clk), .rst_n(rst_n), .clear(scratchpad_clear), // FIX: Use scratchpad_clear
+        .clk(clk), .rst_n(rst_n), .clear(scratchpad_clear), 
         .wr_en(sched_wr_en), .wr_cycle(sched_wr_cycle),
         .wr_cmd_type(sched_wr_cmd_type), .wr_bank_group(sched_wr_bank_group), .wr_bank(sched_wr_bank),
         .wr_row(sched_wr_row), .wr_column(sched_wr_column), .wr_request_id(sched_wr_request_id),

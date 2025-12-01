@@ -1,7 +1,7 @@
 // =============================================================================
-// DRAM Scheduler Testbench (Debug Enhanced)
+// DRAM Scheduler Testbench
 // =============================================================================
-// Tests the full flow with internal state monitoring and protocol assertions.
+// Tests the full flow with extensive debugging enabled.
 // =============================================================================
 
 `timescale 1ns/1ps
@@ -78,10 +78,8 @@ module dram_scheduler_tb;
     );
     
     // =============================================================================
-    // Debug Monitor (Hierarchical Access)
+    // Debug Monitor
     // =============================================================================
-    // Note: These paths assume the instance names in dram_scheduler_top.v are:
-    // u_batch_scheduler, u_schedule_generator, u_request_buffer, etc.
     
     reg [3:0] prev_gen_state;
     reg [2:0] prev_batch_state;
@@ -175,7 +173,6 @@ module dram_scheduler_tb;
     task dump_schedule;
         integer i;
         reg [31:0] max;
-        // Shadow memory to track open rows for verification
         reg [`ROW_WIDTH-1:0] open_rows [0:15];
         reg                  row_valid [0:15];
         integer bank_idx;
@@ -185,7 +182,6 @@ module dram_scheduler_tb;
             max = sched_max_cycle;
             total_reads_issued = 0;
             
-            // Initialize shadow state
             for(i=0; i<16; i=i+1) row_valid[i] = 0;
 
             $display("\n--- FINAL SCHEDULE (Max Cycle: %0d) ---", max);
@@ -200,7 +196,6 @@ module dram_scheduler_tb;
                     case(sched_cmd_type)
                         `CMD_ACT: begin
                             $write("ACT BG%0d B%0d Row 0x%h", sched_bank_group, sched_bank, sched_row);
-                            // Assert: Bank must be precharged
                             if (row_valid[bank_idx]) 
                                 $display(" [ERROR] ACT to open bank! (Expect PRE first)");
                             
@@ -214,18 +209,14 @@ module dram_scheduler_tb;
                         end
                         
                         `CMD_RD: begin
-                            $write("RD  BG%0d B%0d (ReqID: %0d)", sched_bank_group, sched_bank, sched_request_id);
+                            $write("RD  BG%0d B%0d Col 0x%h (ReqID: %0d)", sched_bank_group, sched_bank, sched_column, sched_request_id);
                             total_reads_issued = total_reads_issued + 1;
                             
-                            // Assert: ReqID must be valid
                             if ($isunknown(sched_request_id)) 
                                 $display(" [ERROR] ReqID is X!");
                                 
-                            // Assert: Row must be open and match
                             if (!row_valid[bank_idx])
                                 $display(" [ERROR] Read to closed bank!");
-                            // Note: We can't verify exact row match here easily without 
-                            // knowing which row that ReqID requested, but we verified the ACT above.
                         end
                         
                         default:  $write("UNK");
@@ -266,7 +257,6 @@ module dram_scheduler_tb;
         @(posedge clk);
         schedule_start <= 1'b0;
         
-        // Timeout watchdog
         fork : wait_or_timeout
             begin
                 @(posedge schedule_done);
@@ -274,7 +264,7 @@ module dram_scheduler_tb;
                 disable wait_or_timeout;
             end
             begin
-                repeat(10000) @(posedge clk); // 10k cycles timeout
+                repeat(10000) @(posedge clk); 
                 $display("[ERROR] Timed out waiting for schedule_done!");
                 $finish;
             end

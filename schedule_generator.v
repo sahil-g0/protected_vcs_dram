@@ -1,11 +1,7 @@
 // =============================================================================
 // Schedule Generator Module
 // =============================================================================
-// Implements Phases 2 & 3 of the scheduling algorithm.
-// Fixed Logic: 
-// 1. Starts at Cycle 0.
-// 2. Improved Interleaving.
-// 3. Increased Memory Read Latency (2-cycle wait) to fix data races.
+// Implements Phases 2 & 3 with debug prints.
 // =============================================================================
 
 `timescale 1ns/1ps
@@ -37,12 +33,13 @@ module schedule_generator (
     input  wire [`SRR_ID_WIDTH-1:0]      srr_rd_chain_next,
     input  wire                          srr_rd_chain_valid,
 
-    // Interface: Request Buffer (Read Only - for chaining)
+    // Interface: Request Buffer (Read Only)
     output reg  [`REQUEST_ID_WIDTH-1:0]  req_rd_addr,
     input  wire [`REQUEST_ID_WIDTH-1:0]  req_rd_chain_next,
     input  wire                          req_rd_chain_valid,
+    input  wire [`COLUMN_WIDTH-1:0]      req_rd_column,
 
-    // Interface: Bank State Tracker (Query & Update)
+    // Interface: Bank State Tracker
     output reg  [`BANK_GROUP_WIDTH-1:0]  bst_query_bank_group,
     output reg  [`BANK_WIDTH-1:0]        bst_query_bank,
     input  wire                          bst_is_precharged,
@@ -55,7 +52,7 @@ module schedule_generator (
     output reg  [`BANK_WIDTH-1:0]        bst_upd_bank,
     output reg  [`ROW_WIDTH-1:0]         bst_upd_row,
 
-    // Interface: Schedule Memory (Write Only)
+    // Interface: Schedule Memory
     output reg                           sched_wr_en,
     output reg  [`CYCLE_WIDTH-1:0]       sched_wr_cycle,
     output reg  [2:0]                    sched_wr_cmd_type,
@@ -155,11 +152,11 @@ module schedule_generator (
                         global_cmd_ptr <= 0;
                         last_act_time <= 0;
                         last_rd_time <= 0;
+                        $display("[GEN] Started. Critical SBR: %0d", critical_path_sbr);
                     end
                 end
 
                 `SCHED_LOAD_SBR: begin
-                    // Wait 2 cycles for Registered Memory Output to stabilize
                     if (delay_cnt < 2) begin
                         delay_cnt <= delay_cnt + 1;
                     end else begin
@@ -172,12 +169,13 @@ module schedule_generator (
                         
                         state <= `SCHED_LOAD_SRR;
                         delay_cnt <= 0;
+                        $display("[GEN] Loaded SBR %0d. BG=%0d B=%0d HeadSRR=%0d", 
+                                 sbr_rd_addr, sbr_rd_bank_group, sbr_rd_bank, sbr_rd_head_srr);
                     end
                 end
 
                 `SCHED_LOAD_SRR: begin
                     srr_rd_addr <= curr_srr_ptr;
-                    // Wait 2 cycles for Registered Memory Output
                     if (delay_cnt < 2) begin
                         delay_cnt <= delay_cnt + 1;
                     end else begin
@@ -186,11 +184,12 @@ module schedule_generator (
                         
                         state <= `SCHED_CHECK_STATE;
                         delay_cnt <= 0;
+                        $display("[GEN] Loaded SRR %0d. Row=0x%h HeadReq=%0d", 
+                                 curr_srr_ptr, srr_rd_hit_tag[`ROW_WIDTH-1:0], srr_rd_head_req);
                     end
                 end
 
                 `SCHED_CHECK_STATE: begin
-                    // BST logic assumed combinational or fast enough
                     if (bst_is_row_open) begin
                         if (bst_open_row == curr_target_row)
                             state <= `SCHED_REQ_LOOP_RD;
@@ -219,6 +218,7 @@ module schedule_generator (
                     global_cmd_ptr <= sched_time + 1;
                     bank_busy_until[curr_bank_idx] <= sched_time + `T_RP;
                     state <= `SCHED_EMIT_ACT;
+                    $display("[GEN] Emit PRE at %0d", sched_time);
                 end
 
                 `SCHED_EMIT_ACT: begin
@@ -244,17 +244,16 @@ module schedule_generator (
                     bank_busy_until[curr_bank_idx] <= sched_time + `T_RCD;
                     last_act_time <= sched_time;
                     state <= `SCHED_REQ_LOOP_RD;
+                    $display("[GEN] Emit ACT at %0d", sched_time);
                 end
 
                 `SCHED_REQ_LOOP_RD: begin
                     req_rd_addr <= curr_req_ptr;
-                    // Reset delay for next state
                     delay_cnt <= 0; 
                     state <= `SCHED_WAIT_REQ_DATA;
                 end
 
                 `SCHED_WAIT_REQ_DATA: begin
-                    // Wait 2 cycles for Registered Memory Output
                     if (delay_cnt < 2) begin
                         delay_cnt <= delay_cnt + 1;
                     end else begin
@@ -273,12 +272,15 @@ module schedule_generator (
                     sched_wr_cmd_type <= `CMD_RD;
                     sched_wr_bank_group <= curr_bg;
                     sched_wr_bank <= curr_bank;
-                    sched_wr_column <= 0; 
+                    sched_wr_column <= req_rd_column;
                     sched_wr_request_id <= curr_req_ptr;
 
                     global_cmd_ptr <= sched_time + 1;
                     last_rd_time <= sched_time;
                     bank_busy_until[curr_bank_idx] <= sched_time + `T_RTP; 
+
+                    $display("[GEN] Emit RD at %0d. Req=%0d. NextValid=%b Next=%0d", 
+                             sched_time, curr_req_ptr, req_rd_chain_valid, req_rd_chain_next);
 
                     if (req_rd_chain_valid) begin
                         curr_req_ptr <= req_rd_chain_next;
@@ -289,10 +291,11 @@ module schedule_generator (
                 end
 
                 `SCHED_NEXT_SRR: begin
+                    $display("[GEN] SRR Done. NextValid=%b Next=%0d", srr_rd_chain_valid, srr_rd_chain_next);
                     if (srr_rd_chain_valid) begin
                         curr_srr_ptr <= srr_rd_chain_next;
                         state <= `SCHED_LOAD_SRR;
-                        delay_cnt <= 0; // Reset for load state
+                        delay_cnt <= 0; 
                     end else begin
                         state <= `SCHED_NEXT_SBR;
                     end
@@ -300,7 +303,7 @@ module schedule_generator (
 
                 `SCHED_NEXT_SBR: begin
                     processed_count <= processed_count + 1;
-                    delay_cnt <= 0; // Reset for load state
+                    delay_cnt <= 0;
                     
                     if (processed_count + 1 >= num_sbr_entries) begin
                         state <= `SCHED_DONE;
@@ -333,6 +336,7 @@ module schedule_generator (
                     done <= 1;
                     busy <= 0;
                     state <= `SCHED_IDLE;
+                    $display("[GEN] Done.");
                 end
             endcase
         end
