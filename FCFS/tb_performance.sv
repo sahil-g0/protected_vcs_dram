@@ -14,11 +14,19 @@ module tb_performance();
     reg clk;
     reg reset;
     
-    // Direct controller inputs (no FIFO)
-    reg [31:0] address;
-    reg [31:0] write_data;
-    reg r_w;
-    reg fifo_empty;
+    // FIFO inputs (from testbench)
+    reg [31:0] fifo_address_in;
+    reg [31:0] fifo_write_data_in;
+    reg fifo_r_w_in;
+    reg fifo_push;
+    
+    // FIFO outputs (to controller)
+    wire [31:0] address;
+    wire [31:0] write_data;
+    wire r_w;
+    wire fifo_empty;
+    wire fifo_full;
+    wire fifo_almost_full;
     
     // Controller outputs
     wire pop;
@@ -30,7 +38,24 @@ module tb_performance();
     integer total_requests;
     integer completed_requests;
     
-    // Instantiate controller (no FIFO)
+    // Instantiate FIFO
+    instruction_fifo fifo (
+        .CLK(clk),
+        .RESET(reset),
+        .PUSH(fifo_push),
+        .ADDRESS(fifo_address_in),
+        .WRITE_DATA(fifo_write_data_in),
+        .R_W(fifo_r_w_in),
+        .POP(pop),
+        .ADDRESS_OUT(address),
+        .WRITE_DATA_OUT(write_data),
+        .R_W_OUT(r_w),
+        .EMPTY(fifo_empty),
+        .FULL(fifo_full),
+        .ALMOST_FULL(fifo_almost_full)
+    );
+    
+    // Instantiate controller (with FIFO)
     generate_instruction controller (
         .clk(clk),
         .reset(reset),
@@ -65,7 +90,7 @@ module tb_performance();
         endcase
     endfunction
     
-    // Monitor controller commands
+    // Monitor controller commands and FIFO state
     integer cycle_count;
     integer relative_cycle;
     always @(posedge clk) begin
@@ -73,16 +98,36 @@ module tb_performance();
             cycle_count = cycle_count + 1;
             relative_cycle = cycle_count - test_start_cycle;
             
-            // DEBUG: Print bank counters for TEST 3 - track Banks 0 and 1
+            // DEBUG: Print FIFO state every cycle during test
             if (cycle_count >= test_start_cycle && cycle_count <= test_start_cycle + 80) begin
-                $display("DEBUG CYCLE %0d: Bank[0] rd=%0d wr=%0d pre=%0d | Bank[1] rd=%0d wr=%0d pre=%0d",
+                $display("DEBUG CYCLE %0d: FIFO empty=%0d full=%0d | Bank[0] rd=%0d wr=%0d pre=%0d | Bank[1] rd=%0d wr=%0d pre=%0d | ADDR=0x%h R_W=%0d",
                          relative_cycle,
+                         fifo_empty, fifo_full,
                          controller.bank_info[0].t_can_rd,
                          controller.bank_info[0].t_can_wr,
                          controller.bank_info[0].t_can_pre,
                          controller.bank_info[1].t_can_rd,
                          controller.bank_info[1].t_can_wr,
-                         controller.bank_info[1].t_can_pre);
+                         controller.bank_info[1].t_can_pre,
+                         address, r_w);
+            end
+            
+            // DEBUG: Print FIFO push operations
+            if (fifo_push) begin
+                $display(">>> CYCLE %0d: FIFO PUSH - addr=0x%h, r_w=%0d, bg=%0d, bank=%0d, row=%0d, col=%0d",
+                         cycle_count,
+                         fifo_address_in,
+                         fifo_r_w_in,
+                         fifo_address_in[BG_MSB:BG_LSB],
+                         fifo_address_in[BANK_MSB:BANK_LSB],
+                         fifo_address_in[ROW_MSB:ROW_LSB],
+                         fifo_address_in[COL_MSB:COL_LSB]);
+            end
+            
+            // DEBUG: Print POP operations
+            if (pop) begin
+                $display("<<< CYCLE %0d: FIFO POP - addr=0x%h, r_w=%0d",
+                         cycle_count, address, r_w);
             end
             
             if (command != CMD_NOP && cycle_count >= test_start_cycle) begin
@@ -125,26 +170,52 @@ module tb_performance();
         end
     end
     
-    // Task to set address for controller (no FIFO)
-    task set_address(input [31:0] addr, input [31:0] wdata, input rw);
+    // Task to push request into FIFO
+    task push_request(input [31:0] addr, input [31:0] wdata, input rw);
         begin
-            address = addr;
-            write_data = wdata;
-            r_w = rw;
-            fifo_empty = 0;
+            fifo_address_in = addr;
+            fifo_write_data_in = wdata;
+            fifo_r_w_in = rw;
+            fifo_push = 1;
+            $display("=== Pushing: BG=%0d B=%0d Row=0x%05h Col=0x%03h (addr=0x%h) at cycle %0d",
+                     addr[BG_MSB:BG_LSB],
+                     addr[BANK_MSB:BANK_LSB],
+                     addr[ROW_MSB:ROW_LSB],
+                     addr[COL_MSB:COL_LSB],
+                     addr,
+                     cycle_count);
+            @(posedge clk);
+            #1;  // Small delay after clock edge to ensure clean signal setup
+            $display("=== Pushed request: BG=%0d B=%0d Row=0x%05h Col=0x%03h R/W=%0d at cycle %0d",
+                     addr[BG_MSB:BG_LSB],
+                     addr[BANK_MSB:BANK_LSB],
+                     addr[ROW_MSB:ROW_LSB],
+                     addr[COL_MSB:COL_LSB],
+                     rw,
+                     cycle_count);
         end
     endtask
     
-    // Task to wait for all requests to complete
-    task wait_for_completion();
+    // Task to finish pushing all requests
+    task finish_push();
         begin
-            // Wait for pop signal indicating request complete
-            while (!pop) begin
-                @(posedge clk);
+            fifo_push = 0;
+            @(posedge clk);
+        end
+    endtask
+    
+    // Task to wait for N request completions
+    task wait_for_n_completions(input integer n);
+        integer i;
+        begin
+            for (i = 0; i < n; i = i + 1) begin
+                // Wait for pop signal
+                while (!pop) begin
+                    @(posedge clk);
+                end
+                $display("=== Request %0d/%0d completed at cycle %0d", i+1, n, cycle_count);
+                @(posedge clk);  // Move to next cycle
             end
-            @(posedge clk);  // One more cycle after pop
-            // Mark FIFO as empty so controller doesn't process same address again
-            fifo_empty = 1;
         end
     endtask
     
@@ -179,10 +250,10 @@ module tb_performance();
         // Initialize
         cycle_count = 0;
         reset = 1;
-        address = 0;
-        write_data = 0;
-        r_w = 0;
-        fifo_empty = 1;  // Start with empty
+        fifo_address_in = 0;
+        fifo_write_data_in = 0;
+        fifo_r_w_in = 0;
+        fifo_push = 0;
         total_requests = 0;
         completed_requests = 0;
         
@@ -203,28 +274,24 @@ module tb_performance();
         total_requests = 3;
         completed_requests = 0;
         
-        // First request: BG0 B0 Row=0x200 Col=0x00
-        set_address(make_addr(14'h00200, 2'b00, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
+        // Wait a few cycles for controller to stabilize
+        repeat(3) @(posedge clk);
         
-        // Second request: BG0 B0 Row=0x200 Col=0x08 (row hit)
-        set_address(make_addr(14'h00200, 2'b00, 2'b00, 8'h08), 32'h0, 0);
-        wait_for_completion();
+        // Push all requests into FIFO at once
+        $display("=== Pushing all 3 requests into FIFO...");
+        push_request(make_addr(14'h00200, 2'b00, 2'b00, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h00200, 2'b00, 2'b00, 8'h08), 32'h0, 0);
+        push_request(make_addr(14'h00200, 2'b00, 2'b00, 8'h10), 32'h0, 0);
+        finish_push();
+        $display("=== All requests pushed, controller will process...\n");
         
-        // Third request: BG0 B0 Row=0x200 Col=0x10 (row hit)
-        set_address(make_addr(14'h00200, 2'b00, 2'b00, 8'h10), 32'h0, 0);
-        wait_for_completion();
+        // Wait for all requests to complete
+        wait_for_n_completions(3);
         
         test_end_cycle = cycle_count;
         print_results("TEST 1: Row Hits (Single Bank)");
         
         repeat(20) @(posedge clk);
-        
-        // Reset address between tests to prevent contamination
-        fifo_empty = 1;
-        address = 0;
-        
-        repeat(10) @(posedge clk);
         
         //====================================================================
         // TEST 2: Row Conflict
@@ -239,13 +306,15 @@ module tb_performance();
         total_requests = 2;
         completed_requests = 0;
         
-        // First request: BG0 B0 Row=0xa Col=0x00
-        set_address(make_addr(14'h0000a, 2'b00, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
+        // Push all requests into FIFO at once
+        $display("=== Pushing all 2 requests into FIFO...");
+        push_request(make_addr(14'h0000a, 2'b00, 2'b00, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h0000b, 2'b00, 2'b00, 8'h00), 32'h0, 0);
+        finish_push();
+        $display("=== All requests pushed, controller will process...\n");
         
-        // Second request: BG0 B0 Row=0xb Col=0x00 (row conflict)
-        set_address(make_addr(14'h0000b, 2'b00, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
+        // Wait for all requests to complete
+        wait_for_n_completions(2);
         
         test_end_cycle = cycle_count;
         print_results("TEST 2: Row Conflict");
@@ -264,21 +333,17 @@ module tb_performance();
         total_requests = 4;
         completed_requests = 0;
         
-        // Request 1: BG0 B0 Row=0x64 Col=0x00
-        set_address(make_addr(14'h00064, 2'b00, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
+        // Push all requests into FIFO at once
+        $display("=== Pushing all 4 requests into FIFO...");
+        push_request(make_addr(14'h00064, 2'b00, 2'b00, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h000c8, 2'b00, 2'b01, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h00064, 2'b00, 2'b00, 8'h08), 32'h0, 0);
+        push_request(make_addr(14'h0012c, 2'b01, 2'b00, 8'h00), 32'h0, 0);
+        finish_push();
+        $display("=== All requests pushed, controller will process...\n");
         
-        // Request 2: BG0 B1 Row=0xc8 Col=0x00
-        set_address(make_addr(14'h000c8, 2'b00, 2'b01, 8'h00), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 3: BG0 B0 Row=0x64 Col=0x08 (row hit)
-        set_address(make_addr(14'h00064, 2'b00, 2'b00, 8'h08), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 4: BG1 B0 Row=0x12c Col=0x00
-        set_address(make_addr(14'h0012c, 2'b01, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
+        // Wait for all requests to complete
+        wait_for_n_completions(4);
         
         test_end_cycle = cycle_count;
         print_results("TEST 3: Multi-Bank Interleaving");
@@ -297,21 +362,17 @@ module tb_performance();
         total_requests = 4;
         completed_requests = 0;
         
-        // Request 1: BG0 B0 Row=0xa Col=0x00
-        set_address(make_addr(14'h0000a, 2'b00, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
+        // Push all requests into FIFO at once
+        $display("=== Pushing all 4 requests into FIFO...");
+        push_request(make_addr(14'h0000a, 2'b00, 2'b00, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h0000b, 2'b00, 2'b00, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h0000a, 2'b00, 2'b00, 8'h08), 32'h0, 0);
+        push_request(make_addr(14'h0000b, 2'b00, 2'b00, 8'h08), 32'h0, 0);
+        finish_push();
+        $display("=== All requests pushed, controller will process...\n");
         
-        // Request 2: BG0 B0 Row=0xb Col=0x00 (conflict)
-        set_address(make_addr(14'h0000b, 2'b00, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 3: BG0 B0 Row=0xa Col=0x08 (conflict)
-        set_address(make_addr(14'h0000a, 2'b00, 2'b00, 8'h08), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 4: BG0 B0 Row=0xb Col=0x08 (conflict)
-        set_address(make_addr(14'h0000b, 2'b00, 2'b00, 8'h08), 32'h0, 0);
-        wait_for_completion();
+        // Wait for all requests to complete
+        wait_for_n_completions(4);
         
         test_end_cycle = cycle_count;
         print_results("TEST 4: Row Thrashing (Ping-Pong)");
@@ -330,33 +391,20 @@ module tb_performance();
         total_requests = 7;
         completed_requests = 0;
         
-        // Request 1: BG0 B0 Row=0x64 Col=0x00
-        set_address(make_addr(14'h00064, 2'b00, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
+        // Push all requests into FIFO at once
+        $display("=== Pushing all 7 requests into FIFO...");
+        push_request(make_addr(14'h00064, 2'b00, 2'b00, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h000c8, 2'b01, 2'b00, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h0012c, 2'b00, 2'b01, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h00064, 2'b00, 2'b00, 8'h08), 32'h0, 0);
+        push_request(make_addr(14'h0012d, 2'b00, 2'b01, 8'h00), 32'h0, 0);
+        push_request(make_addr(14'h000c8, 2'b01, 2'b00, 8'h08), 32'h0, 0);
+        push_request(make_addr(14'h00064, 2'b00, 2'b00, 8'h10), 32'h0, 0);
+        finish_push();
+        $display("=== All requests pushed, controller will process...\n");
         
-        // Request 2: BG1 B0 Row=0xc8 Col=0x00
-        set_address(make_addr(14'h000c8, 2'b01, 2'b00, 8'h00), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 3: BG0 B1 Row=0x12c Col=0x00
-        set_address(make_addr(14'h0012c, 2'b00, 2'b01, 8'h00), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 4: BG0 B0 Row=0x64 Col=0x08 (row hit)
-        set_address(make_addr(14'h00064, 2'b00, 2'b00, 8'h08), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 5: BG0 B1 Row=0x12d Col=0x00 (conflict)
-        set_address(make_addr(14'h0012d, 2'b00, 2'b01, 8'h00), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 6: BG1 B0 Row=0xc8 Col=0x08 (row hit)
-        set_address(make_addr(14'h000c8, 2'b01, 2'b00, 8'h08), 32'h0, 0);
-        wait_for_completion();
-        
-        // Request 7: BG0 B0 Row=0x64 Col=0x10 (row hit)
-        set_address(make_addr(14'h00064, 2'b00, 2'b00, 8'h10), 32'h0, 0);
-        wait_for_completion();
+        // Wait for all requests to complete
+        wait_for_n_completions(7);
         
         test_end_cycle = cycle_count;
         print_results("TEST 5: Kitchen Sink Complex Pattern");

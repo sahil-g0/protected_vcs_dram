@@ -1,0 +1,628 @@
+========================================
+DRAM Controller Performance Tests
+========================================
+
+
+========================================
+TEST 1: Row Hits (Single Bank)
+========================================
+Expected: ACT -> RD -> RD -> RD (all row hits)
+
+DEBUG CYCLE 1: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 2: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 3: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+=== Pushing all 3 requests into FIFO...
+=== Pushing: BG=0 B=0 Row=0x00200 Col=0x000 (addr=0x02000000) at cycle 8
+DEBUG CYCLE 4: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+>>> CYCLE 9: FIFO PUSH - addr=0x02000000, r_w=0, bg=0, bank=0, row=512, col=0
+=== Pushed request: BG=0 B=0 Row=0x00200 Col=0x000 R/W=0 at cycle 9
+=== Pushing: BG=0 B=0 Row=0x00200 Col=0x008 (addr=0x02000080) at cycle 9
+DEBUG CYCLE 5: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+>>> CYCLE 10: FIFO PUSH - addr=0x02000080, r_w=0, bg=0, bank=0, row=512, col=8
+=== Pushed request: BG=0 B=0 Row=0x00200 Col=0x008 R/W=0 at cycle 10
+=== Pushing: BG=0 B=0 Row=0x00200 Col=0x010 (addr=0x02000100) at cycle 10
+DEBUG CYCLE 6: FIFO empty=0 full=0 | Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+>>> CYCLE 11: FIFO PUSH - addr=0x02000100, r_w=0, bg=0, bank=0, row=512, col=16
+CYCLE 6    TIME 205 : ACT  bg=0 bank=0 row=512
+=== Pushed request: BG=0 B=0 Row=0x00200 Col=0x010 R/W=0 at cycle 11
+=== All requests pushed, controller will process...
+
+DEBUG CYCLE 7: FIFO empty=0 full=0 | Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 8: FIFO empty=0 full=0 | Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 9: FIFO empty=0 full=0 | Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 10: FIFO empty=0 full=0 | Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 11: FIFO empty=0 full=0 | Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 12: FIFO empty=0 full=0 | Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 13: FIFO empty=0 full=0 | Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 14: FIFO empty=0 full=0 | Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 15: FIFO empty=0 full=0 | Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 16: FIFO empty=0 full=0 | Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 17: FIFO empty=0 full=0 | Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 18: FIFO empty=0 full=0 | Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+DEBUG CYCLE 19: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+=== Request 1/3 completed at cycle 24
+DEBUG CYCLE 20: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x02000000 R_W=0
+<<< CYCLE 25: FIFO POP - addr=0x02000000, r_w=0
+CYCLE 20   TIME 345 : RD   bg=0 bank=0 row=512 col=0
+DEBUG CYCLE 21: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x02000080 R_W=0
+DEBUG CYCLE 22: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x02000080 R_W=0
+DEBUG CYCLE 23: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x02000080 R_W=0
+DEBUG CYCLE 24: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x02000080 R_W=0
+DEBUG CYCLE 25: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x02000080 R_W=0
+DEBUG CYCLE 26: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000080 R_W=0
+=== Request 2/3 completed at cycle 31
+DEBUG CYCLE 27: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=6 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x02000080 R_W=0
+<<< CYCLE 32: FIFO POP - addr=0x02000080, r_w=0
+CYCLE 27   TIME 415 : RD   bg=0 bank=0 row=512 col=8
+DEBUG CYCLE 28: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=5 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x02000100 R_W=0
+DEBUG CYCLE 29: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=4 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x02000100 R_W=0
+DEBUG CYCLE 30: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=3 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x02000100 R_W=0
+DEBUG CYCLE 31: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=2 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x02000100 R_W=0
+DEBUG CYCLE 32: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=1 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x02000100 R_W=0
+DEBUG CYCLE 33: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x02000100 R_W=0
+=== Request 3/3 completed at cycle 38
+DEBUG CYCLE 34: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=7 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x02000100 R_W=0
+<<< CYCLE 39: FIFO POP - addr=0x02000100, r_w=0
+CYCLE 34   TIME 485 : RD   bg=0 bank=0 row=512 col=16
+FR-FCFS cycles = 34
+
+========================================
+SUMMARY: TEST 1: Row Hits (Single Bank)
+========================================
+Total Cycles:             34
+Total Requests:           3
+Avg Latency:              11.33 cycles/request
+Throughput:               0.0882 requests/cycle
+========================================
+
+DEBUG CYCLE 35: FIFO empty=1 full=0 | Bank[0] rd=5 wr=11 pre=6 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 36: FIFO empty=1 full=0 | Bank[0] rd=4 wr=10 pre=5 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 37: FIFO empty=1 full=0 | Bank[0] rd=3 wr=9 pre=4 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 38: FIFO empty=1 full=0 | Bank[0] rd=2 wr=8 pre=3 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 39: FIFO empty=1 full=0 | Bank[0] rd=1 wr=7 pre=2 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 40: FIFO empty=1 full=0 | Bank[0] rd=0 wr=6 pre=1 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 41: FIFO empty=1 full=0 | Bank[0] rd=0 wr=5 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 42: FIFO empty=1 full=0 | Bank[0] rd=0 wr=4 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 43: FIFO empty=1 full=0 | Bank[0] rd=0 wr=3 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 44: FIFO empty=1 full=0 | Bank[0] rd=0 wr=2 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 45: FIFO empty=1 full=0 | Bank[0] rd=0 wr=1 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 46: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 47: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 48: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 49: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 50: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 51: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 52: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 53: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 54: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 55: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+
+========================================
+TEST 2: Row Conflict
+========================================
+Expected: ACT -> RD -> PRE -> ACT -> RD
+
+=== Pushing all 2 requests into FIFO...
+=== Pushing: BG=0 B=0 Row=0x0000a Col=0x000 (addr=0x000a0000) at cycle 60
+DEBUG CYCLE 1: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+>>> CYCLE 61: FIFO PUSH - addr=0x000a0000, r_w=0, bg=0, bank=0, row=10, col=0
+=== Pushed request: BG=0 B=0 Row=0x0000a Col=0x000 R/W=0 at cycle 61
+=== Pushing: BG=0 B=0 Row=0x0000b Col=0x000 (addr=0x000b0000) at cycle 61
+DEBUG CYCLE 2: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+>>> CYCLE 62: FIFO PUSH - addr=0x000b0000, r_w=0, bg=0, bank=0, row=11, col=0
+=== Pushed request: BG=0 B=0 Row=0x0000b Col=0x000 R/W=0 at cycle 62
+=== All requests pushed, controller will process...
+
+DEBUG CYCLE 3: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+CYCLE 3    TIME 725 : PRE  bg=0 bank=0
+DEBUG CYCLE 4: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 5: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 6: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 7: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 8: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 9: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 10: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 11: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 12: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 13: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 14: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 15: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 16: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 17: FIFO empty=0 full=0 | Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+CYCLE 17   TIME 865 : ACT  bg=0 bank=0 row=10
+DEBUG CYCLE 18: FIFO empty=0 full=0 | Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 19: FIFO empty=0 full=0 | Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 20: FIFO empty=0 full=0 | Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 21: FIFO empty=0 full=0 | Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 22: FIFO empty=0 full=0 | Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 23: FIFO empty=0 full=0 | Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 24: FIFO empty=0 full=0 | Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 25: FIFO empty=0 full=0 | Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 26: FIFO empty=0 full=0 | Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 27: FIFO empty=0 full=0 | Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 28: FIFO empty=0 full=0 | Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 29: FIFO empty=0 full=0 | Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 30: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+=== Request 1/2 completed at cycle 90
+DEBUG CYCLE 31: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+<<< CYCLE 91: FIFO POP - addr=0x000a0000, r_w=0
+CYCLE 31   TIME 1005 : RD   bg=0 bank=0 row=10 col=0
+DEBUG CYCLE 32: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 33: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 34: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 35: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 36: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 37: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 38: FIFO empty=0 full=0 | Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 39: FIFO empty=0 full=0 | Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 40: FIFO empty=0 full=0 | Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 41: FIFO empty=0 full=0 | Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 42: FIFO empty=0 full=0 | Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 43: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 44: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 45: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+CYCLE 45   TIME 1145 : PRE  bg=0 bank=0
+DEBUG CYCLE 46: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 47: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 48: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 49: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 50: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 51: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 52: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 53: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 54: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 55: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 56: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 57: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 58: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 59: FIFO empty=0 full=0 | Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+CYCLE 59   TIME 1285 : ACT  bg=0 bank=0 row=11
+DEBUG CYCLE 60: FIFO empty=0 full=0 | Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 61: FIFO empty=0 full=0 | Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 62: FIFO empty=0 full=0 | Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 63: FIFO empty=0 full=0 | Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 64: FIFO empty=0 full=0 | Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 65: FIFO empty=0 full=0 | Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 66: FIFO empty=0 full=0 | Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 67: FIFO empty=0 full=0 | Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 68: FIFO empty=0 full=0 | Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 69: FIFO empty=0 full=0 | Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 70: FIFO empty=0 full=0 | Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 71: FIFO empty=0 full=0 | Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 72: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+=== Request 2/2 completed at cycle 132
+DEBUG CYCLE 73: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+<<< CYCLE 133: FIFO POP - addr=0x000b0000, r_w=0
+CYCLE 73   TIME 1425 : RD   bg=0 bank=0 row=11 col=0
+FR-FCFS cycles = 73
+
+========================================
+SUMMARY: TEST 2: Row Conflict
+========================================
+Total Cycles:             73
+Total Requests:           2
+Avg Latency:              36.50 cycles/request
+Throughput:               0.0274 requests/cycle
+========================================
+
+DEBUG CYCLE 74: FIFO empty=1 full=0 | Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 75: FIFO empty=1 full=0 | Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 76: FIFO empty=1 full=0 | Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 77: FIFO empty=1 full=0 | Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 78: FIFO empty=1 full=0 | Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 79: FIFO empty=1 full=0 | Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 80: FIFO empty=1 full=0 | Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+
+========================================
+TEST 3: Multi-Bank Interleaving
+========================================
+Expected: Multiple ACTs, then interleaved READs
+
+=== Pushing all 4 requests into FIFO...
+=== Pushing: BG=0 B=0 Row=0x00064 Col=0x000 (addr=0x00640000) at cycle 154
+DEBUG CYCLE 1: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+>>> CYCLE 155: FIFO PUSH - addr=0x00640000, r_w=0, bg=0, bank=0, row=100, col=0
+=== Pushed request: BG=0 B=0 Row=0x00064 Col=0x000 R/W=0 at cycle 155
+=== Pushing: BG=0 B=1 Row=0x000c8 Col=0x000 (addr=0x00c81000) at cycle 155
+DEBUG CYCLE 2: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 156: FIFO PUSH - addr=0x00c81000, r_w=0, bg=0, bank=1, row=200, col=0
+=== Pushed request: BG=0 B=1 Row=0x000c8 Col=0x000 R/W=0 at cycle 156
+=== Pushing: BG=0 B=0 Row=0x00064 Col=0x008 (addr=0x00640080) at cycle 156
+DEBUG CYCLE 3: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 157: FIFO PUSH - addr=0x00640080, r_w=0, bg=0, bank=0, row=100, col=8
+CYCLE 3    TIME 1665 : PRE  bg=0 bank=0
+=== Pushed request: BG=0 B=0 Row=0x00064 Col=0x008 R/W=0 at cycle 157
+=== Pushing: BG=1 B=0 Row=0x0012c Col=0x000 (addr=0x012c4000) at cycle 157
+DEBUG CYCLE 4: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 158: FIFO PUSH - addr=0x012c4000, r_w=0, bg=1, bank=0, row=300, col=0
+=== Pushed request: BG=1 B=0 Row=0x0012c Col=0x000 R/W=0 at cycle 158
+=== All requests pushed, controller will process...
+
+DEBUG CYCLE 5: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 6: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 7: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 8: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 9: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 10: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 11: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 12: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 13: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 14: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 15: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 16: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 17: FIFO empty=0 full=0 | Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+CYCLE 17   TIME 1805 : ACT  bg=0 bank=0 row=100
+DEBUG CYCLE 18: FIFO empty=0 full=0 | Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 19: FIFO empty=0 full=0 | Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 20: FIFO empty=0 full=0 | Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 21: FIFO empty=0 full=0 | Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 22: FIFO empty=0 full=0 | Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 23: FIFO empty=0 full=0 | Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 24: FIFO empty=0 full=0 | Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 25: FIFO empty=0 full=0 | Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 26: FIFO empty=0 full=0 | Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 27: FIFO empty=0 full=0 | Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 28: FIFO empty=0 full=0 | Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 29: FIFO empty=0 full=0 | Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 30: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+=== Request 1/4 completed at cycle 184
+DEBUG CYCLE 31: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+<<< CYCLE 185: FIFO POP - addr=0x00640000, r_w=0
+CYCLE 31   TIME 1945 : RD   bg=0 bank=0 row=100 col=0
+DEBUG CYCLE 32: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 33: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=13 wr=13 pre=27 | ADDR=0x00c81000 R_W=0
+CYCLE 33   TIME 1965 : ACT  bg=0 bank=1 row=200
+DEBUG CYCLE 34: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=12 wr=12 pre=26 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 35: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=11 wr=11 pre=25 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 36: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=10 wr=10 pre=24 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 37: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=9 wr=9 pre=23 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 38: FIFO empty=0 full=0 | Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=8 wr=8 pre=22 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 39: FIFO empty=0 full=0 | Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=7 wr=7 pre=21 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 40: FIFO empty=0 full=0 | Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=6 wr=6 pre=20 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 41: FIFO empty=0 full=0 | Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=5 wr=5 pre=19 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 42: FIFO empty=0 full=0 | Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=4 wr=4 pre=18 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 43: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=3 wr=3 pre=17 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 44: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=2 wr=2 pre=16 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 45: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=1 wr=1 pre=15 | ADDR=0x00c81000 R_W=0
+DEBUG CYCLE 46: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=14 | ADDR=0x00c81000 R_W=0
+=== Request 2/4 completed at cycle 200
+DEBUG CYCLE 47: FIFO empty=0 full=0 | Bank[0] rd=6 wr=0 pre=0 | Bank[1] rd=6 wr=12 pre=13 | ADDR=0x00c81000 R_W=0
+<<< CYCLE 201: FIFO POP - addr=0x00c81000, r_w=0
+CYCLE 47   TIME 2105 : RD   bg=0 bank=1 row=200 col=0
+DEBUG CYCLE 48: FIFO empty=0 full=0 | Bank[0] rd=5 wr=0 pre=0 | Bank[1] rd=5 wr=11 pre=12 | ADDR=0x00640080 R_W=0
+DEBUG CYCLE 49: FIFO empty=0 full=0 | Bank[0] rd=4 wr=0 pre=0 | Bank[1] rd=4 wr=10 pre=11 | ADDR=0x00640080 R_W=0
+DEBUG CYCLE 50: FIFO empty=0 full=0 | Bank[0] rd=3 wr=0 pre=0 | Bank[1] rd=3 wr=9 pre=10 | ADDR=0x00640080 R_W=0
+DEBUG CYCLE 51: FIFO empty=0 full=0 | Bank[0] rd=2 wr=0 pre=0 | Bank[1] rd=2 wr=8 pre=9 | ADDR=0x00640080 R_W=0
+DEBUG CYCLE 52: FIFO empty=0 full=0 | Bank[0] rd=1 wr=0 pre=0 | Bank[1] rd=1 wr=7 pre=8 | ADDR=0x00640080 R_W=0
+DEBUG CYCLE 53: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=6 pre=7 | ADDR=0x00640080 R_W=0
+=== Request 3/4 completed at cycle 207
+DEBUG CYCLE 54: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=7 | Bank[1] rd=6 wr=5 pre=6 | ADDR=0x00640080 R_W=0
+<<< CYCLE 208: FIFO POP - addr=0x00640080, r_w=0
+CYCLE 54   TIME 2175 : RD   bg=0 bank=0 row=100 col=8
+DEBUG CYCLE 55: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=6 | Bank[1] rd=5 wr=4 pre=5 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 56: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=5 | Bank[1] rd=4 wr=3 pre=4 | ADDR=0x012c4000 R_W=0
+CYCLE 56   TIME 2195 : ACT  bg=1 bank=0 row=300
+DEBUG CYCLE 57: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=4 | Bank[1] rd=3 wr=2 pre=3 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 58: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=3 | Bank[1] rd=2 wr=1 pre=2 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 59: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=2 | Bank[1] rd=1 wr=0 pre=1 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 60: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=1 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 61: FIFO empty=0 full=0 | Bank[0] rd=0 wr=5 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 62: FIFO empty=0 full=0 | Bank[0] rd=0 wr=4 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 63: FIFO empty=0 full=0 | Bank[0] rd=0 wr=3 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 64: FIFO empty=0 full=0 | Bank[0] rd=0 wr=2 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 65: FIFO empty=0 full=0 | Bank[0] rd=0 wr=1 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 66: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 67: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 68: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+DEBUG CYCLE 69: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+=== Request 4/4 completed at cycle 223
+DEBUG CYCLE 70: FIFO empty=0 full=0 | Bank[0] rd=3 wr=0 pre=0 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x012c4000 R_W=0
+<<< CYCLE 224: FIFO POP - addr=0x012c4000, r_w=0
+CYCLE 70   TIME 2335 : RD   bg=1 bank=0 row=300 col=0
+FR-FCFS cycles = 70
+
+========================================
+SUMMARY: TEST 3: Multi-Bank Interleaving
+========================================
+Total Cycles:             70
+Total Requests:           4
+Avg Latency:              17.50 cycles/request
+Throughput:               0.0571 requests/cycle
+========================================
+
+DEBUG CYCLE 71: FIFO empty=1 full=0 | Bank[0] rd=2 wr=0 pre=0 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 72: FIFO empty=1 full=0 | Bank[0] rd=1 wr=0 pre=0 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 73: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 74: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 75: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 76: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 77: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 78: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 79: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+DEBUG CYCLE 80: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+
+========================================
+TEST 4: Row Thrashing (Ping-Pong)
+========================================
+Expected: ACT -> RD -> PRE -> ACT -> RD (repeat)
+
+=== Pushing all 4 requests into FIFO...
+=== Pushing: BG=0 B=0 Row=0x0000a Col=0x000 (addr=0x000a0000) at cycle 245
+DEBUG CYCLE 1: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+>>> CYCLE 246: FIFO PUSH - addr=0x000a0000, r_w=0, bg=0, bank=0, row=10, col=0
+=== Pushed request: BG=0 B=0 Row=0x0000a Col=0x000 R/W=0 at cycle 246
+=== Pushing: BG=0 B=0 Row=0x0000b Col=0x000 (addr=0x000b0000) at cycle 246
+DEBUG CYCLE 2: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+>>> CYCLE 247: FIFO PUSH - addr=0x000b0000, r_w=0, bg=0, bank=0, row=11, col=0
+=== Pushed request: BG=0 B=0 Row=0x0000b Col=0x000 R/W=0 at cycle 247
+=== Pushing: BG=0 B=0 Row=0x0000a Col=0x008 (addr=0x000a0080) at cycle 247
+DEBUG CYCLE 3: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+>>> CYCLE 248: FIFO PUSH - addr=0x000a0080, r_w=0, bg=0, bank=0, row=10, col=8
+CYCLE 3    TIME 2575 : PRE  bg=0 bank=0
+=== Pushed request: BG=0 B=0 Row=0x0000a Col=0x008 R/W=0 at cycle 248
+=== Pushing: BG=0 B=0 Row=0x0000b Col=0x008 (addr=0x000b0080) at cycle 248
+DEBUG CYCLE 4: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+>>> CYCLE 249: FIFO PUSH - addr=0x000b0080, r_w=0, bg=0, bank=0, row=11, col=8
+=== Pushed request: BG=0 B=0 Row=0x0000b Col=0x008 R/W=0 at cycle 249
+=== All requests pushed, controller will process...
+
+DEBUG CYCLE 5: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 6: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 7: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 8: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 9: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 10: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 11: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 12: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 13: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 14: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 15: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 16: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 17: FIFO empty=0 full=0 | Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+CYCLE 17   TIME 2715 : ACT  bg=0 bank=0 row=10
+DEBUG CYCLE 18: FIFO empty=0 full=0 | Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 19: FIFO empty=0 full=0 | Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 20: FIFO empty=0 full=0 | Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 21: FIFO empty=0 full=0 | Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 22: FIFO empty=0 full=0 | Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 23: FIFO empty=0 full=0 | Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 24: FIFO empty=0 full=0 | Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 25: FIFO empty=0 full=0 | Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 26: FIFO empty=0 full=0 | Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 27: FIFO empty=0 full=0 | Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 28: FIFO empty=0 full=0 | Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 29: FIFO empty=0 full=0 | Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+DEBUG CYCLE 30: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+=== Request 1/4 completed at cycle 275
+DEBUG CYCLE 31: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x000a0000 R_W=0
+<<< CYCLE 276: FIFO POP - addr=0x000a0000, r_w=0
+CYCLE 31   TIME 2855 : RD   bg=0 bank=0 row=10 col=0
+DEBUG CYCLE 32: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 33: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 34: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 35: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 36: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 37: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 38: FIFO empty=0 full=0 | Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 39: FIFO empty=0 full=0 | Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 40: FIFO empty=0 full=0 | Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 41: FIFO empty=0 full=0 | Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 42: FIFO empty=0 full=0 | Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 43: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 44: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 45: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+CYCLE 45   TIME 2995 : PRE  bg=0 bank=0
+DEBUG CYCLE 46: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 47: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 48: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 49: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 50: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 51: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 52: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 53: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 54: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 55: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 56: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 57: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 58: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 59: FIFO empty=0 full=0 | Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+CYCLE 59   TIME 3135 : ACT  bg=0 bank=0 row=11
+DEBUG CYCLE 60: FIFO empty=0 full=0 | Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 61: FIFO empty=0 full=0 | Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 62: FIFO empty=0 full=0 | Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 63: FIFO empty=0 full=0 | Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 64: FIFO empty=0 full=0 | Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 65: FIFO empty=0 full=0 | Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 66: FIFO empty=0 full=0 | Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 67: FIFO empty=0 full=0 | Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 68: FIFO empty=0 full=0 | Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 69: FIFO empty=0 full=0 | Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 70: FIFO empty=0 full=0 | Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 71: FIFO empty=0 full=0 | Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+DEBUG CYCLE 72: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+=== Request 2/4 completed at cycle 317
+DEBUG CYCLE 73: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x000b0000 R_W=0
+<<< CYCLE 318: FIFO POP - addr=0x000b0000, r_w=0
+CYCLE 73   TIME 3275 : RD   bg=0 bank=0 row=11 col=0
+DEBUG CYCLE 74: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x000a0080 R_W=0
+DEBUG CYCLE 75: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x000a0080 R_W=0
+DEBUG CYCLE 76: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x000a0080 R_W=0
+DEBUG CYCLE 77: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x000a0080 R_W=0
+DEBUG CYCLE 78: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x000a0080 R_W=0
+DEBUG CYCLE 79: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0080 R_W=0
+DEBUG CYCLE 80: FIFO empty=0 full=0 | Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x000a0080 R_W=0
+CYCLE 87   TIME 3415 : PRE  bg=0 bank=0
+CYCLE 101  TIME 3555 : ACT  bg=0 bank=0 row=10
+=== Request 3/4 completed at cycle 359
+<<< CYCLE 360: FIFO POP - addr=0x000a0080, r_w=0
+CYCLE 115  TIME 3695 : RD   bg=0 bank=0 row=10 col=8
+CYCLE 129  TIME 3835 : PRE  bg=0 bank=0
+CYCLE 143  TIME 3975 : ACT  bg=0 bank=0 row=11
+=== Request 4/4 completed at cycle 401
+<<< CYCLE 402: FIFO POP - addr=0x000b0080, r_w=0
+CYCLE 157  TIME 4115 : RD   bg=0 bank=0 row=11 col=8
+FR-FCFS cycles = 157
+
+========================================
+SUMMARY: TEST 4: Row Thrashing (Ping-Pong)
+========================================
+Total Cycles:             157
+Total Requests:           4
+Avg Latency:              39.25 cycles/request
+Throughput:               0.0255 requests/cycle
+========================================
+
+
+========================================
+TEST 5: Kitchen Sink Complex Pattern
+========================================
+Expected: Mix of row hits, conflicts, multi-bank
+
+=== Pushing all 7 requests into FIFO...
+=== Pushing: BG=0 B=0 Row=0x00064 Col=0x000 (addr=0x00640000) at cycle 423
+DEBUG CYCLE 1: FIFO empty=1 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00000000 R_W=0
+>>> CYCLE 424: FIFO PUSH - addr=0x00640000, r_w=0, bg=0, bank=0, row=100, col=0
+=== Pushed request: BG=0 B=0 Row=0x00064 Col=0x000 R/W=0 at cycle 424
+=== Pushing: BG=1 B=0 Row=0x000c8 Col=0x000 (addr=0x00c84000) at cycle 424
+DEBUG CYCLE 2: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 425: FIFO PUSH - addr=0x00c84000, r_w=0, bg=1, bank=0, row=200, col=0
+=== Pushed request: BG=1 B=0 Row=0x000c8 Col=0x000 R/W=0 at cycle 425
+=== Pushing: BG=0 B=1 Row=0x0012c Col=0x000 (addr=0x012c1000) at cycle 425
+DEBUG CYCLE 3: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 426: FIFO PUSH - addr=0x012c1000, r_w=0, bg=0, bank=1, row=300, col=0
+CYCLE 3    TIME 4355 : PRE  bg=0 bank=0
+=== Pushed request: BG=0 B=1 Row=0x0012c Col=0x000 R/W=0 at cycle 426
+=== Pushing: BG=0 B=0 Row=0x00064 Col=0x008 (addr=0x00640080) at cycle 426
+DEBUG CYCLE 4: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 427: FIFO PUSH - addr=0x00640080, r_w=0, bg=0, bank=0, row=100, col=8
+=== Pushed request: BG=0 B=0 Row=0x00064 Col=0x008 R/W=0 at cycle 427
+=== Pushing: BG=0 B=1 Row=0x0012d Col=0x000 (addr=0x012d1000) at cycle 427
+DEBUG CYCLE 5: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 428: FIFO PUSH - addr=0x012d1000, r_w=0, bg=0, bank=1, row=301, col=0
+=== Pushed request: BG=0 B=1 Row=0x0012d Col=0x000 R/W=0 at cycle 428
+=== Pushing: BG=1 B=0 Row=0x000c8 Col=0x008 (addr=0x00c84080) at cycle 428
+DEBUG CYCLE 6: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 429: FIFO PUSH - addr=0x00c84080, r_w=0, bg=1, bank=0, row=200, col=8
+=== Pushed request: BG=1 B=0 Row=0x000c8 Col=0x008 R/W=0 at cycle 429
+=== Pushing: BG=0 B=0 Row=0x00064 Col=0x010 (addr=0x00640100) at cycle 429
+DEBUG CYCLE 7: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+>>> CYCLE 430: FIFO PUSH - addr=0x00640100, r_w=0, bg=0, bank=0, row=100, col=16
+=== Pushed request: BG=0 B=0 Row=0x00064 Col=0x010 R/W=0 at cycle 430
+=== All requests pushed, controller will process...
+
+DEBUG CYCLE 8: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 9: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 10: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 11: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 12: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 13: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 14: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 15: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 16: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 17: FIFO empty=0 full=0 | Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+CYCLE 17   TIME 4495 : ACT  bg=0 bank=0 row=100
+DEBUG CYCLE 18: FIFO empty=0 full=0 | Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 19: FIFO empty=0 full=0 | Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 20: FIFO empty=0 full=0 | Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 21: FIFO empty=0 full=0 | Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 22: FIFO empty=0 full=0 | Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 23: FIFO empty=0 full=0 | Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 24: FIFO empty=0 full=0 | Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 25: FIFO empty=0 full=0 | Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 26: FIFO empty=0 full=0 | Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 27: FIFO empty=0 full=0 | Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 28: FIFO empty=0 full=0 | Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 29: FIFO empty=0 full=0 | Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+DEBUG CYCLE 30: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+=== Request 1/7 completed at cycle 453
+DEBUG CYCLE 31: FIFO empty=0 full=0 | Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0 | ADDR=0x00640000 R_W=0
+<<< CYCLE 454: FIFO POP - addr=0x00640000, r_w=0
+CYCLE 31   TIME 4635 : RD   bg=0 bank=0 row=100 col=0
+DEBUG CYCLE 32: FIFO empty=0 full=0 | Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 33: FIFO empty=0 full=0 | Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+CYCLE 33   TIME 4655 : PRE  bg=1 bank=0
+DEBUG CYCLE 34: FIFO empty=0 full=0 | Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 35: FIFO empty=0 full=0 | Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 36: FIFO empty=0 full=0 | Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 37: FIFO empty=0 full=0 | Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 38: FIFO empty=0 full=0 | Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 39: FIFO empty=0 full=0 | Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 40: FIFO empty=0 full=0 | Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 41: FIFO empty=0 full=0 | Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 42: FIFO empty=0 full=0 | Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 43: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 44: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 45: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 46: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 47: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+CYCLE 47   TIME 4795 : ACT  bg=1 bank=0 row=200
+DEBUG CYCLE 48: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 49: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 50: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 51: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 52: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 53: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 54: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 55: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 56: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 57: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 58: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 59: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+DEBUG CYCLE 60: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+=== Request 2/7 completed at cycle 483
+DEBUG CYCLE 61: FIFO empty=0 full=0 | Bank[0] rd=3 wr=0 pre=0 | Bank[1] rd=3 wr=0 pre=0 | ADDR=0x00c84000 R_W=0
+<<< CYCLE 484: FIFO POP - addr=0x00c84000, r_w=0
+CYCLE 61   TIME 4935 : RD   bg=1 bank=0 row=200 col=0
+DEBUG CYCLE 62: FIFO empty=0 full=0 | Bank[0] rd=2 wr=0 pre=0 | Bank[1] rd=2 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 63: FIFO empty=0 full=0 | Bank[0] rd=1 wr=0 pre=0 | Bank[1] rd=1 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+CYCLE 63   TIME 4955 : PRE  bg=0 bank=1
+DEBUG CYCLE 64: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 65: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 66: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 67: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 68: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 69: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 70: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 71: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 72: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 73: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 74: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 75: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 76: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 77: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=13 wr=13 pre=27 | ADDR=0x012c1000 R_W=0
+CYCLE 77   TIME 5095 : ACT  bg=0 bank=1 row=300
+DEBUG CYCLE 78: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=12 wr=12 pre=26 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 79: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=11 wr=11 pre=25 | ADDR=0x012c1000 R_W=0
+DEBUG CYCLE 80: FIFO empty=0 full=0 | Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=10 wr=10 pre=24 | ADDR=0x012c1000 R_W=0
+=== Request 3/7 completed at cycle 513
+<<< CYCLE 514: FIFO POP - addr=0x012c1000, r_w=0
+CYCLE 91   TIME 5235 : RD   bg=0 bank=1 row=300 col=0
+=== Request 4/7 completed at cycle 520
+<<< CYCLE 521: FIFO POP - addr=0x00640080, r_w=0
+CYCLE 98   TIME 5305 : RD   bg=0 bank=0 row=100 col=8
+CYCLE 105  TIME 5375 : PRE  bg=0 bank=1
+CYCLE 119  TIME 5515 : ACT  bg=0 bank=1 row=301
+=== Request 5/7 completed at cycle 555
+<<< CYCLE 556: FIFO POP - addr=0x012d1000, r_w=0
+CYCLE 133  TIME 5655 : RD   bg=0 bank=1 row=301 col=0
+=== Request 6/7 completed at cycle 559
+<<< CYCLE 560: FIFO POP - addr=0x00c84080, r_w=0
+CYCLE 137  TIME 5695 : RD   bg=1 bank=0 row=200 col=8
+=== Request 7/7 completed at cycle 562
+<<< CYCLE 563: FIFO POP - addr=0x00640100, r_w=0
+CYCLE 140  TIME 5725 : RD   bg=0 bank=0 row=100 col=16
+FR-FCFS cycles = 140
+
+========================================
+SUMMARY: TEST 5: Kitchen Sink Complex Pattern
+========================================
+Total Cycles:             140
+Total Requests:           7
+Avg Latency:              20.00 cycles/request
+Throughput:               0.0500 requests/cycle
+========================================
+
+
+========================================
+All Performance Tests Completed!
+========================================

@@ -1,0 +1,519 @@
+========================================
+DRAM Controller Performance Tests
+========================================
+
+
+========================================
+TEST 1: Row Hits (Single Bank)
+========================================
+Expected: ACT -> RD -> RD -> RD (all row hits)
+
+DEBUG CYCLE 1: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 2: Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 2    TIME 165 : ACT  bg=0 bank=0 row=512
+DEBUG CYCLE 3: Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 4: Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 5: Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 6: Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 7: Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 8: Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 9: Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 10: Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 11: Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 12: Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 13: Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 14: Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 15: Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 16: Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 16   TIME 305 : RD   bg=0 bank=0 row=512 col=0
+DEBUG CYCLE 17: Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 18: Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 19: Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0
+DEBUG CYCLE 20: Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 21: Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 22: Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 23: Bank[0] rd=6 wr=12 pre=6 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 23   TIME 375 : RD   bg=0 bank=0 row=512 col=8
+DEBUG CYCLE 24: Bank[0] rd=5 wr=11 pre=5 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 25: Bank[0] rd=4 wr=10 pre=4 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 26: Bank[0] rd=3 wr=9 pre=3 | Bank[1] rd=3 wr=0 pre=0
+DEBUG CYCLE 27: Bank[0] rd=2 wr=8 pre=2 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 28: Bank[0] rd=1 wr=7 pre=1 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 29: Bank[0] rd=0 wr=6 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 30: Bank[0] rd=6 wr=12 pre=7 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 30   TIME 445 : RD   bg=0 bank=0 row=512 col=16
+FR-FCFS cycles = 30
+
+========================================
+SUMMARY: TEST 1: Row Hits (Single Bank)
+========================================
+Total Cycles:             30
+Total Requests:           3
+Avg Latency:              10.00 cycles/request
+Throughput:               0.1000 requests/cycle
+========================================
+
+DEBUG CYCLE 31: Bank[0] rd=5 wr=11 pre=6 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 32: Bank[0] rd=4 wr=10 pre=5 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 33: Bank[0] rd=3 wr=9 pre=4 | Bank[1] rd=3 wr=0 pre=0
+DEBUG CYCLE 34: Bank[0] rd=2 wr=8 pre=3 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 35: Bank[0] rd=1 wr=7 pre=2 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 36: Bank[0] rd=0 wr=6 pre=1 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 37: Bank[0] rd=0 wr=5 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 38: Bank[0] rd=0 wr=4 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 39: Bank[0] rd=0 wr=3 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 40: Bank[0] rd=0 wr=2 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 41: Bank[0] rd=0 wr=1 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 42: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 43: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 44: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 45: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 46: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 47: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 48: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 49: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 50: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 51: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 52: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 53: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 54: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 55: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 56: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 57: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 58: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 59: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 60: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 61: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+
+========================================
+TEST 2: Row Conflict
+========================================
+Expected: ACT -> RD -> PRE -> ACT -> RD
+
+DEBUG CYCLE 1: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 2: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 2    TIME 775 : PRE  bg=0 bank=0
+DEBUG CYCLE 3: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 4: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 5: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 6: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 7: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 8: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 9: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 10: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 11: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 12: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 13: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 14: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 15: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 16: Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 16   TIME 915 : ACT  bg=0 bank=0 row=10
+DEBUG CYCLE 17: Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 18: Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 19: Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 20: Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 21: Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 22: Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 23: Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 24: Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 25: Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 26: Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 27: Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 28: Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 29: Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 30: Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 30   TIME 1055 : RD   bg=0 bank=0 row=10 col=0
+DEBUG CYCLE 31: Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 32: Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 33: Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0
+DEBUG CYCLE 34: Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 35: Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 36: Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 37: Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 38: Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 39: Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 40: Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 41: Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 42: Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 43: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 44: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 44   TIME 1195 : PRE  bg=0 bank=0
+DEBUG CYCLE 45: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 46: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 47: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 48: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 49: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 50: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 51: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 52: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 53: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 54: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 55: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 56: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 57: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 58: Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 58   TIME 1335 : ACT  bg=0 bank=0 row=11
+DEBUG CYCLE 59: Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 60: Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 61: Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 62: Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 63: Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 64: Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 65: Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 66: Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 67: Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 68: Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 69: Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 70: Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 71: Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 72: Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 72   TIME 1475 : RD   bg=0 bank=0 row=11 col=0
+FR-FCFS cycles = 72
+
+========================================
+SUMMARY: TEST 2: Row Conflict
+========================================
+Total Cycles:             72
+Total Requests:           2
+Avg Latency:              36.00 cycles/request
+Throughput:               0.0278 requests/cycle
+========================================
+
+DEBUG CYCLE 73: Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 74: Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 75: Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0
+DEBUG CYCLE 76: Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 77: Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 78: Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 79: Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 80: Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0
+
+========================================
+TEST 3: Multi-Bank Interleaving
+========================================
+Expected: Multiple ACTs, then interleaved READs
+
+DEBUG CYCLE 1: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 2: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 2    TIME 1705 : PRE  bg=0 bank=0
+DEBUG CYCLE 3: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 4: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 5: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 6: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 7: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 8: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 9: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 10: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 11: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 12: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 13: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 14: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 15: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 16: Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 16   TIME 1845 : ACT  bg=0 bank=0 row=100
+DEBUG CYCLE 17: Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 18: Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 19: Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 20: Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 21: Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 22: Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 23: Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 24: Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 25: Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 26: Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 27: Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 28: Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 29: Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 30: Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 30   TIME 1985 : RD   bg=0 bank=0 row=100 col=0
+DEBUG CYCLE 31: Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 32: Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 33: Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=13 wr=13 pre=27
+CYCLE 33   TIME 2015 : ACT  bg=0 bank=1 row=200
+DEBUG CYCLE 34: Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=12 wr=12 pre=26
+DEBUG CYCLE 35: Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=11 wr=11 pre=25
+DEBUG CYCLE 36: Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=10 wr=10 pre=24
+DEBUG CYCLE 37: Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=9 wr=9 pre=23
+DEBUG CYCLE 38: Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=8 wr=8 pre=22
+DEBUG CYCLE 39: Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=7 wr=7 pre=21
+DEBUG CYCLE 40: Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=6 wr=6 pre=20
+DEBUG CYCLE 41: Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=5 wr=5 pre=19
+DEBUG CYCLE 42: Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=4 wr=4 pre=18
+DEBUG CYCLE 43: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=3 wr=3 pre=17
+DEBUG CYCLE 44: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=2 wr=2 pre=16
+DEBUG CYCLE 45: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=1 wr=1 pre=15
+DEBUG CYCLE 46: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=14
+DEBUG CYCLE 47: Bank[0] rd=6 wr=0 pre=0 | Bank[1] rd=6 wr=12 pre=13
+CYCLE 47   TIME 2155 : RD   bg=0 bank=1 row=200 col=0
+DEBUG CYCLE 48: Bank[0] rd=5 wr=0 pre=0 | Bank[1] rd=5 wr=11 pre=12
+DEBUG CYCLE 49: Bank[0] rd=4 wr=0 pre=0 | Bank[1] rd=4 wr=10 pre=11
+DEBUG CYCLE 50: Bank[0] rd=3 wr=0 pre=0 | Bank[1] rd=3 wr=9 pre=10
+DEBUG CYCLE 51: Bank[0] rd=2 wr=0 pre=0 | Bank[1] rd=2 wr=8 pre=9
+DEBUG CYCLE 52: Bank[0] rd=1 wr=0 pre=0 | Bank[1] rd=1 wr=7 pre=8
+DEBUG CYCLE 53: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=6 pre=7
+DEBUG CYCLE 54: Bank[0] rd=6 wr=12 pre=7 | Bank[1] rd=6 wr=5 pre=6
+CYCLE 54   TIME 2225 : RD   bg=0 bank=0 row=100 col=8
+DEBUG CYCLE 55: Bank[0] rd=5 wr=11 pre=6 | Bank[1] rd=5 wr=4 pre=5
+DEBUG CYCLE 56: Bank[0] rd=4 wr=10 pre=5 | Bank[1] rd=4 wr=3 pre=4
+DEBUG CYCLE 57: Bank[0] rd=3 wr=9 pre=4 | Bank[1] rd=3 wr=2 pre=3
+CYCLE 57   TIME 2255 : ACT  bg=1 bank=0 row=300
+DEBUG CYCLE 58: Bank[0] rd=2 wr=8 pre=3 | Bank[1] rd=2 wr=1 pre=2
+DEBUG CYCLE 59: Bank[0] rd=1 wr=7 pre=2 | Bank[1] rd=1 wr=0 pre=1
+DEBUG CYCLE 60: Bank[0] rd=0 wr=6 pre=1 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 61: Bank[0] rd=0 wr=5 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 62: Bank[0] rd=0 wr=4 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 63: Bank[0] rd=0 wr=3 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 64: Bank[0] rd=0 wr=2 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 65: Bank[0] rd=0 wr=1 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 66: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 67: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 68: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 69: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 70: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 71: Bank[0] rd=3 wr=0 pre=0 | Bank[1] rd=3 wr=0 pre=0
+CYCLE 71   TIME 2395 : RD   bg=1 bank=0 row=300 col=0
+FR-FCFS cycles = 71
+
+========================================
+SUMMARY: TEST 3: Multi-Bank Interleaving
+========================================
+Total Cycles:             71
+Total Requests:           4
+Avg Latency:              17.75 cycles/request
+Throughput:               0.0563 requests/cycle
+========================================
+
+DEBUG CYCLE 72: Bank[0] rd=2 wr=0 pre=0 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 73: Bank[0] rd=1 wr=0 pre=0 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 74: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 75: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 76: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 77: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 78: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 79: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 80: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+
+========================================
+TEST 4: Row Thrashing (Ping-Pong)
+========================================
+Expected: ACT -> RD -> PRE -> ACT -> RD (repeat)
+
+DEBUG CYCLE 1: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 2: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 2    TIME 2625 : PRE  bg=0 bank=0
+DEBUG CYCLE 3: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 4: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 5: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 6: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 7: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 8: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 9: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 10: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 11: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 12: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 13: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 14: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 15: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 16: Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 16   TIME 2765 : ACT  bg=0 bank=0 row=10
+DEBUG CYCLE 17: Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 18: Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 19: Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 20: Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 21: Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 22: Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 23: Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 24: Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 25: Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 26: Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 27: Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 28: Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 29: Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 30: Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 30   TIME 2905 : RD   bg=0 bank=0 row=10 col=0
+DEBUG CYCLE 31: Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 32: Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 33: Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0
+DEBUG CYCLE 34: Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 35: Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 36: Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 37: Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 38: Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 39: Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 40: Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 41: Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 42: Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 43: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 44: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 44   TIME 3045 : PRE  bg=0 bank=0
+DEBUG CYCLE 45: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 46: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 47: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 48: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 49: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 50: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 51: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 52: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 53: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 54: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 55: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 56: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 57: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 58: Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 58   TIME 3185 : ACT  bg=0 bank=0 row=11
+DEBUG CYCLE 59: Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 60: Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 61: Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 62: Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 63: Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 64: Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 65: Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 66: Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 67: Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 68: Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 69: Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 70: Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 71: Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 72: Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 72   TIME 3325 : RD   bg=0 bank=0 row=11 col=0
+DEBUG CYCLE 73: Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 74: Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 75: Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0
+DEBUG CYCLE 76: Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 77: Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 78: Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 79: Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 80: Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 86   TIME 3465 : PRE  bg=0 bank=0
+CYCLE 100  TIME 3605 : ACT  bg=0 bank=0 row=10
+CYCLE 114  TIME 3745 : RD   bg=0 bank=0 row=10 col=8
+CYCLE 128  TIME 3885 : PRE  bg=0 bank=0
+CYCLE 142  TIME 4025 : ACT  bg=0 bank=0 row=11
+CYCLE 156  TIME 4165 : RD   bg=0 bank=0 row=11 col=8
+FR-FCFS cycles = 156
+
+========================================
+SUMMARY: TEST 4: Row Thrashing (Ping-Pong)
+========================================
+Total Cycles:             156
+Total Requests:           4
+Avg Latency:              39.00 cycles/request
+Throughput:               0.0256 requests/cycle
+========================================
+
+
+========================================
+TEST 5: Kitchen Sink Complex Pattern
+========================================
+Expected: Mix of row hits, conflicts, multi-bank
+
+DEBUG CYCLE 1: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 2: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 2    TIME 4395 : PRE  bg=0 bank=0
+DEBUG CYCLE 3: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 4: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 5: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 6: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 7: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 8: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 9: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 10: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 11: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 12: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 13: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 14: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 15: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 16: Bank[0] rd=13 wr=13 pre=27 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 16   TIME 4535 : ACT  bg=0 bank=0 row=100
+DEBUG CYCLE 17: Bank[0] rd=12 wr=12 pre=26 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 18: Bank[0] rd=11 wr=11 pre=25 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 19: Bank[0] rd=10 wr=10 pre=24 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 20: Bank[0] rd=9 wr=9 pre=23 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 21: Bank[0] rd=8 wr=8 pre=22 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 22: Bank[0] rd=7 wr=7 pre=21 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 23: Bank[0] rd=6 wr=6 pre=20 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 24: Bank[0] rd=5 wr=5 pre=19 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 25: Bank[0] rd=4 wr=4 pre=18 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 26: Bank[0] rd=3 wr=3 pre=17 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 27: Bank[0] rd=2 wr=2 pre=16 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 28: Bank[0] rd=1 wr=1 pre=15 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 29: Bank[0] rd=0 wr=0 pre=14 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 30: Bank[0] rd=6 wr=12 pre=13 | Bank[1] rd=6 wr=0 pre=0
+CYCLE 30   TIME 4675 : RD   bg=0 bank=0 row=100 col=0
+DEBUG CYCLE 31: Bank[0] rd=5 wr=11 pre=12 | Bank[1] rd=5 wr=0 pre=0
+DEBUG CYCLE 32: Bank[0] rd=4 wr=10 pre=11 | Bank[1] rd=4 wr=0 pre=0
+DEBUG CYCLE 33: Bank[0] rd=3 wr=9 pre=10 | Bank[1] rd=3 wr=0 pre=0
+CYCLE 33   TIME 4705 : PRE  bg=1 bank=0
+DEBUG CYCLE 34: Bank[0] rd=2 wr=8 pre=9 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 35: Bank[0] rd=1 wr=7 pre=8 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 36: Bank[0] rd=0 wr=6 pre=7 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 37: Bank[0] rd=0 wr=5 pre=6 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 38: Bank[0] rd=0 wr=4 pre=5 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 39: Bank[0] rd=0 wr=3 pre=4 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 40: Bank[0] rd=0 wr=2 pre=3 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 41: Bank[0] rd=0 wr=1 pre=2 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 42: Bank[0] rd=0 wr=0 pre=1 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 43: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 44: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 45: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 46: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 47: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 47   TIME 4845 : ACT  bg=1 bank=0 row=200
+DEBUG CYCLE 48: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 49: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 50: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 51: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 52: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 53: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 54: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 55: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 56: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 57: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 58: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 59: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 60: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 61: Bank[0] rd=3 wr=0 pre=0 | Bank[1] rd=3 wr=0 pre=0
+CYCLE 61   TIME 4985 : RD   bg=1 bank=0 row=200 col=0
+DEBUG CYCLE 62: Bank[0] rd=2 wr=0 pre=0 | Bank[1] rd=2 wr=0 pre=0
+DEBUG CYCLE 63: Bank[0] rd=1 wr=0 pre=0 | Bank[1] rd=1 wr=0 pre=0
+DEBUG CYCLE 64: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+CYCLE 64   TIME 5015 : PRE  bg=0 bank=1
+DEBUG CYCLE 65: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 66: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 67: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 68: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 69: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 70: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 71: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 72: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 73: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 74: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 75: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 76: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 77: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=0 wr=0 pre=0
+DEBUG CYCLE 78: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=13 wr=13 pre=27
+CYCLE 78   TIME 5155 : ACT  bg=0 bank=1 row=300
+DEBUG CYCLE 79: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=12 wr=12 pre=26
+DEBUG CYCLE 80: Bank[0] rd=0 wr=0 pre=0 | Bank[1] rd=11 wr=11 pre=25
+CYCLE 92   TIME 5295 : RD   bg=0 bank=1 row=300 col=0
+CYCLE 99   TIME 5365 : RD   bg=0 bank=0 row=100 col=8
+CYCLE 106  TIME 5435 : PRE  bg=0 bank=1
+CYCLE 120  TIME 5575 : ACT  bg=0 bank=1 row=301
+CYCLE 134  TIME 5715 : RD   bg=0 bank=1 row=301 col=0
+CYCLE 138  TIME 5755 : RD   bg=1 bank=0 row=200 col=8
+CYCLE 141  TIME 5785 : RD   bg=0 bank=0 row=100 col=16
+FR-FCFS cycles = 141
+
+========================================
+SUMMARY: TEST 5: Kitchen Sink Complex Pattern
+========================================
+Total Cycles:             141
+Total Requests:           7
+Avg Latency:              20.14 cycles/request
+Throughput:               0.0496 requests/cycle
+========================================
+
+
+========================================
+All Performance Tests Completed!
+========================================
